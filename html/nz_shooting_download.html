@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Media View" property="og:title" />
+    <meta content="New Zeland Mosque Mass Shooting - Full video" property="og:description" />
+    <meta content="https://embed.com/this-is-the-site-url" property="og:url" />
+    <meta content="https://embed.com/embedimage.png" property="og:image" />
+    <meta content="#FF7FED" data-react-helmet="true" name="theme-color" />
+    <title>Media View</title>
+
+    <style>
+      html, body {
+        padding: 0;
+        margin: 0;
+        background-color: black;
+        overflow: hidden;
+      }
+
+      #vid {
+        height: 600px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 24px;
+      }
+
+      h4{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="vid" controls>
+      <source src="asset/media/nz-full.mp4" type="video/mp4" />
+    </video>
+    <h4><a href="asset/media/nz-full.mp4" download="nz_shooting_full.mp4">Download</a></h4>
+  </body>
+
+  <script>
+    var vid = document.getElementById('vid');
+
+    vid.addEventListener("play", () => {
+      vid.controls = true;
+    });
+  </script>
+</html>
