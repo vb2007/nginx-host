@@ -1,0 +1,145 @@
+body{
+    background-color: rgb(12, 22, 46);
+}
+
+#nav{
+    /*<nav> tag beállításai.*/
+    background: rgba(79, 72, 255, 0.506);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0px;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+#nav_doboz{
+    /*<nav> tagen belüli <div> beállításai.*/
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    max-width: 1300px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    padding-top: 0px;
+    padding-right: 50px;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    z-index: 1;
+}
+
+#nav_cim{
+    /*Beállítja a jobb felső oldalon található (navugációs bár) cím színét és tulajdonságait.*/
+    background-color: rgb(0, 228, 198);
+    background-image: linear-gradient(to top, rgb(17, 185, 218) 0%, rgb(119, 0, 255) 80%);
+    -webkit-text-stroke: 0.2px rgb(255, 255, 255);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2.5rem;
+}
+
+#nav_menu{
+    /*<ul> tagre van kihatással. Egymás mellé teszi a navigációs mezőket.*/
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav_link{
+    /*<a> tagben lévő linkekre van kihatással. Dizájnt ad a gomboknak
+    és helyet hagy ki köztük*/
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 125px;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+.nav_gomb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    padding-right: 1rem;
+    padding-bottom: 0;
+    padding-left: 1rem;
+    width: 100%;
+}
+
+#login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    height: 20%;
+    width: 75%;
+    border: none;
+    outline: none;
+    /*Lekerekítést ad az elemnek*/
+    border-radius: 4px;
+    background: rgb(130, 30, 202);
+    background: linear-gradient(to right, rgb(105, 4, 156), rgb(2, 116, 141), rgb(36, 53, 248));
+    background: -webkit-linear-gradient(to right, rgb(105, 4, 156), rgb(255, 115, 115), rgb(36, 53, 248));
+    transition: all 0.5s ease;
+}
+
+#register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    /*Lekerekítést ad az elemnek*/
+    border-radius: 4px;
+    background: rgb(130, 30, 202);
+    background: linear-gradient(to right, rgb(0, 0, 129), rgb(163, 47, 47), rgb(214, 20, 244));
+    background: -webkit-linear-gradient(to right, rgb(0, 0, 129), rgb(163, 47, 47), rgb(214, 20, 244));
+    transition: all 0.5s ease;
+}
+
+#fejlec
+
+.fo{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 330px;
+    margin-right: 330px;
+}
+
+#footer{
+    color: rgb(252, 237, 210);
+    font-size: 11px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 10px, 50px;
+    background-color: rgb(24, 19, 81);
+    border-radius: 3px;
+}
