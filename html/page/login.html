@@ -3,19 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="asset/css/fun.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../asset/css/fun.css"> -->
+    <link rel="stylesheet" type="text/css" href="../asset/css/design.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Login</title>
 </head>
 <body>
-    <div id="wrapper">
-        <h2>Login</h2>
-        <form id="loginForm" action="login.php" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br>
-            <input type="submit" value="Login">
-        </form>
-    </div>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a href="../index.html" id="nav_cim">Site</a>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a href="../index.html" id="home" class="nav-link text-dark">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="downloads.html" id="downloads" class="nav-link text-dark">Downloads</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" id="contact" class="nav-link text-dark">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="register.html" id="register" class="nav-link text-dark">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="login.html" id="login" class="nav-link text-dark">Log In</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 </body>
+<div id="wrapper">
+    <h2>Login</h2>
+    <form id="loginForm" action="login.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Login">
+    </form>
+</div>
 </html>

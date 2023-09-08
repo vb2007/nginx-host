@@ -2,7 +2,7 @@ body{
     background-color: rgb(12, 22, 46);
 }
 
-#nav{
+nav{
     /*<nav> tag beállításai.*/
     background: rgba(79, 72, 255, 0.506);
     height: 40px;
