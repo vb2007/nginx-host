@@ -59,7 +59,7 @@ nav{
     list-style: none;
 }
 
-.nav_link{
+.nav-link{
     /*<a> tagben lévő linkekre van kihatással. Dizájnt ad a gomboknak
     és helyet hagy ki köztük*/
     color: rgb(255, 255, 255);
@@ -113,8 +113,8 @@ nav{
     padding-right: 20px;
     padding-bottom: 5px;
     padding-left: 20px;
-    height: 100%;
-    width: 100%;
+    height: 50%;
+    width: 50%;
     border: none;
     outline: none;
     /*Lekerekítést ad az elemnek*/

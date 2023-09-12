@@ -15,11 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $result->fetchArray(SQLITE3_ASSOC);
 
     if ($user && $password === $user['password']) {
+        $_SESSION['logged_in'] = true;
+        $_SESSION['username'] = $username;
+        
         header("Location: welcome.html");
         exit();
     } else {
         echo "Invalid username or password.";
     }
+
 
     $db->close();
 }
