@@ -1,0 +1,41 @@
+body{
+    background-color: #1B1B1B;
+}
+
+main{
+    flex: 1;
+}
+
+.cont{
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+p{
+    color: #fcfcfc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 34px;
+    text-align: justify;
+}
+
+a{
+    color: #e1590a;
+}
+
+#langselect_cont{
+    justify-items: center;
+}
+
+a:hover{
+    color: #ff2a2a
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+}
+
+#footer_text{
+    text-align: center;
+    font-size: 11px;
+}
