@@ -5,40 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="asset/css/restrict_design.css">
+    <link rel="stylesheet" href="asset/css/design.css">
     <title>Homepage</title>
 </head>
 <body>
     <nav id="nav">
         <div id="nav_container">
             <ul id="nav_list">
-                <li id="nav_item">
-
+                <li class="nav_item">
+                    <a href="/" class="nav_link">Home</a>
                 </li>
-                <li id="nav_item">
-
+                <li class="nav_item">
+                    <a href="/contact" class="nav_link">Contact</a>
+                </li>
+                <li class="nav_item">
+                    <a href="/login" class="nav_link">Log in</a>
                 </li>
             </ul>
         </div>
     </nav>
     <main>
-        <div class="cont">
+        <div class="container justify-content-center">
             <p>Az oldal jelenleg zárt hozzáférésű.</p>
             <p>Csak hitelesített felhasználók tekinthetik meg tartalmát.</p>
-            <p>Amennyiben van érvényes fiókod, <a href="page/login.html">jelentkezz be.</a></p>
+            <p>Amennyiben van érvényes fiókod, <a href="/login">jelentkezz be</a>.</p>
         </div>
         <hr>
-        <div class="cont">
+        <div class="container justify-content-center">
             <p>This site is currently restricted.</p>
             <p>Only authorized users can view it's content.</p>
-            <p>In case if you have an account, <a href="page/login.html">log in.</a></p>
+            <p>In case if you have an account, <a href="/login">log in</a>.</p>
         </div>
         <div class="cont" id="langselect_cont">
-            <select id="languageSelect">
-                <p id="myText" class="translate" data-en="Hello" data-es="Hola">Hello</p>
+            <!-- <select id="languageSelect">
+                <p id="myText" class="translate" data-en="Hello" data-hu="Csa">Hello</p>
                 <option value="en">English</option>
-                <option value="es">Spanish</option>
-            </select>
+                <option value="hu">Magyar</option>
+            </select> -->
         </div>
     </main>
     <footer>

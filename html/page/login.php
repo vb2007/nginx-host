@@ -3,7 +3,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $db = new SQLite3('users.db');
+    $db = new SQLite3('../data/users.db');
     if (!$db) {
         die("Database connection failed: " . $db->lastErrorMsg());
     }
@@ -15,10 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $result->fetchArray(SQLITE3_ASSOC);
 
     if ($user && $password === $user['password']) {
-        $_SESSION['logged_in'] = true;
-        $_SESSION['username'] = $username;
+        // $_SESSION['logged_in'] = true;
+        // $_SESSION['username'] = $username;
         
-        header("Location: welcome.html");
+        echo "Valid login. Welcome to the site.";
+        // header("Location: welcome.html");
         exit();
     } else {
         echo "Invalid username or password.";
