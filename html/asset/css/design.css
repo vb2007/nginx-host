@@ -41,12 +41,13 @@ body{
     display: flex;
     align-items: center;
     list-style: none;
-    margin-top: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .nav_link{
     /*<nav> -> <div> -> <ul> -> <li> -> <a>*/
-    color: #2e0f49;
+    color: #a861ff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,6 +64,10 @@ body{
 
 h1, h2{
     color: #fcfcfc;
+}
+
+.docx_img{
+    width: 25%;
 }
 
 p{
