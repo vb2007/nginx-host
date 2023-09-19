@@ -66,11 +66,6 @@ h1, h2{
     color: #fcfcfc;
 }
 
-.docx_img{
-    width: 45%;
-    padding: 0;
-}
-
 p{
     color: #fcfcfc;
     /* font-family: Arial, Helvetica, sans-serif; */
@@ -102,3 +97,10 @@ footer{
     text-align: center;
     font-size: 11px;
 }
+
+/* .list-unstyled, li {
+    list-style-image: url("../../asset/media/docx_icon.png");
+    width: 20px;
+    height: auto;
+    padding-left: 1px; 
+} */
