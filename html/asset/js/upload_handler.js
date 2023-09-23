@@ -12,18 +12,22 @@ function uploadFile(File) {
     const chunkSize = 1024 * 1024; //1mb-os méretenként tölti fel a fájlt
     let offset = 0; //ez a változó figyeli, hogy jelenleg hogy halad a fájl feltöltése
 
+    //minden fájlrész feltöltését kezeli
     const uploadChunk = () => {
         const chunk = file.slice(offset, offset + chunkSize);
         const formData = new FormData();
         formData.append("fileToUpload", chunk);
         
+        //post kérelmet küld a jelenlegi feltöltési érékkkel
         fetch("upload.php?offset=" + offset, {
             method: "POST",
             body: formData,
         })
         .then(response => response.json())
         .then(data => {
+            //hozzáadja az offsethez a hátralévő adatmennyiséget
             offset += chunkSize;
+            //majd addig ismétli a feltöltést, amíg van adat a fájlban
             if (offset < file.size) {
                 uploadChunk();
             }
@@ -31,6 +35,7 @@ function uploadFile(File) {
                 alert("CHILD PORN UPLOADED SUCCESSFULLY");
             }
         })
+        //hibák kiírása
         .catch(error => {
             console.error(":( CP upload error: ", error);
             alert("No more child porn (error) :(");
