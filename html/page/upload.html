@@ -11,10 +11,15 @@
 
     </header>
     <main>
-
+        <form action="/page/upload.php" method="post" enctype="multipart/form-data">
+            <label for="file">Image file</label>
+            <input type="file" id="file" name="fileToUpload">
+            
+            <input type="submit" value="Upload File" name="submit">
+        </form>
     </main>
     <footer>
-        
+        <p id="footer_text">VB2007 - 2023</p>
     </footer>
 </body>
 </html>
