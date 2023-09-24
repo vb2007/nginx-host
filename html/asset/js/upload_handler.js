@@ -32,13 +32,13 @@ function uploadFile(File) {
                 uploadChunk();
             }
             else{
-                alert("CHILD PORN UPLOADED SUCCESSFULLY");
+                alert("File uploaded successfully.");
             }
         })
         //hibák kiírása
         .catch(error => {
-            console.error(":( CP upload error: ", error);
-            alert("No more child porn (error) :(");
+            console.error("File upload error: ", error);
+            alert("There was an error uploading your file.");
         });
     };
 
