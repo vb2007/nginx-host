@@ -42,11 +42,21 @@ if ($_FILES["fileToUpload"]["error"] !== UPLOAD_ERR_OK) {
 
 $target_dir = "/var/www/html/html/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$chunkNumber = $_SERVER['HTTP_X_CHUNK_NUMBER'];
 
-if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-  echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file . '.part' . $chunkNumber)) {
+  echo "The chunk ". $chunkNumber . " has been uploaded.";
 }
 else {
-  echo "Sorry, there was an error uploading your file.";
+  echo "Sorry, there was an error uploading your chunk.";
+}
+
+//Miután az összes chunk feltöltése megtörtént...
+if ($allChunksUploaded) {
+    //Chunkok összeállítása
+    for ($i = 0; $i < $chunks; $i++) {
+        $data = file_get_contents($target_file . '.part' . $i);
+        file_put_contents($target_file, $data, FILE_APPEND);
+    }
 }
 ?>
