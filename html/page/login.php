@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // header("Location: welcome.html");
         exit();
     } else {
-        echo "Invalid username or password.";
+        echo "INVALID CREDENTIALS.\nTry bruteforcing, you will never get inside motherfucker ;)";
     }
 
 
