@@ -1,7 +1,7 @@
 body{
     background-color: #0f1111;
     display: flex;
-    /* min-height: 100vh; */
+    min-height: 100vh;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
 }
@@ -96,6 +96,10 @@ footer{
 #footer_text{
     text-align: center;
     font-size: 11px;
+}
+
+form{
+    color: rgb(255, 255, 255);
 }
 
 /* .list-unstyled, li {
