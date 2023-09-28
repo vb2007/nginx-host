@@ -18,7 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user && $password === $user['password']) {
         // $_SESSION['logged_in'] = true;
-        $_SESSION['username'] = $username;
+        //$_SESSION['username'] = $username;
+
+        setcookie("loggedin", "true", time() + 3600, "/");
         
         echo "Valid login. Welcome to the site.";
         // header("Location: welcome.html");
@@ -26,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "INVALID CREDENTIALS.\nTry bruteforcing, you will never get inside motherfucker ;)";
     }
-
 
     $db->close();
 }
