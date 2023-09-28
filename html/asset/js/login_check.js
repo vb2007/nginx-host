@@ -10,7 +10,7 @@ if (isUserLoggedIn()) {
 
     //content.innerHTML = "Welcome, logged-in user!";
 
-    content.style.display = "block";
+    content.style.display = "flex";
 } else {
     // User is not logged in --> show login form or message
     

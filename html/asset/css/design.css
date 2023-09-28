@@ -1,4 +1,4 @@
-body{
+body, #content{
     background-color: #0f1111;
     display: flex;
     min-height: 100vh;
