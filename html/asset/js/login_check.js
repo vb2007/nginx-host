@@ -4,17 +4,15 @@ function isUserLoggedIn() {
 }
 
 content = document.getElementById("content");
+var noscriptElement = document.querySelector("noscript");
 
 if (isUserLoggedIn()) {
     // User is logged in --> show content
 
-    //content.innerHTML = "Welcome, logged-in user!";
-
     content.style.display = "flex";
+    noscriptElement.style.display = "none";
 } else {
     // User is not logged in --> show login form or message
     
     content.innerHTML = '<p><a href="/login">Log in</a> with an account that has upload permissions or go fuck yourself nigger.</p>';
-
-    //content.style.display = "none";
 }
