@@ -14,7 +14,7 @@ if (isUserLoggedIn()) {
 } else {
     // User is not logged in --> show login form or message
     
-    content.innerHTML = "<p>Log in with an account that has the upload permissions or go fuck yourself nigger.</p>";
+    content.innerHTML = '<p><a href="/login">Log in</a> with an account that has upload permissions or go fuck yourself nigger.</p>';
 
     //content.style.display = "none";
 }
