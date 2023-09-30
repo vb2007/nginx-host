@@ -3,10 +3,10 @@ function isUserLoggedIn() {
     return document.cookie.includes("loggedin=true");
 }
 
-content = document.getElementById("content");
+var content = document.getElementById("content");
 var noscriptElement = document.querySelector("noscript");
 
-if (isUserLoggedIn()) {
+if (isUserLoggedIn() == true) {
     // User is logged in --> show content
 
     content.style.display = "flex";
