@@ -42,9 +42,11 @@ if ($_FILES["fileToUpload"]["error"] !== UPLOAD_ERR_OK) {
 
 $target_dir = "/var/www/html/html/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$file_name = htmlspecialchars( basename( $_FILES["fileToUpload"]["name"]));
 
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-  echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  echo "<p>The file ".$file_name." has been uploaded.</p>";
+  echo "<p>You can view your upload <a href='/uploads/".$file_name."'>here</a>.</p>";
 }
 else {
   echo "Sorry, there was an error uploading your file.";

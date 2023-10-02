@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $existingUser = $result->fetchArray(SQLITE3_ASSOC);
 
     if ($existingUser) {
+        exit;
         echo "Username already exists. Please choose a different username.";
     } else {
         // Insert the new user into the database
