@@ -1,4 +1,0 @@
-Message for site mappers:
-
-All content in this folder is restricted by the Nginx configuration.
-Visitors can't view the data that is stored in this folder(supposedly).
