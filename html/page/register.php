@@ -2,6 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $email = $_POST["email"];
 
     // Connect to the SQLite database (adjust the path as needed)
     $db = new SQLite3('../data/users.db');
@@ -21,9 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Insert the new user into the database
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT); // Hash the password
-        $query = $db->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
-        $query->bindParam(':username', $username);
-        $query->bindParam(':password', $password);
+        $query = $db->prepare("INSERT INTO users (username, password, email) VALUES (:username, :password, :email)");
+        $query->bindParam(":username", $username);
+        $query->bindParam(":password", $password);
+        $query->bindParam(":email", $email);
         $query->execute();
 
         echo "Registration successful. You can now <a href='../login'>login</a>.";
