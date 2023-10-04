@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // header("Location: welcome.html");
         exit();
     } else {
-        echo "INVALID CREDENTIALS.\nTry bruteforcing, you will never get inside motherfucker ;)";
+        echo "INVALID CREDENTIALS.\n";
     }
 
     $db->close();
