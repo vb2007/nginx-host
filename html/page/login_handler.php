@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         setcookie("loggedin", "true", time() + 3600, "/");
         
         echo "Valid login. Welcome to the site.";
-        // header("Location: welcome.html");
+        header("Location: /welcome");
         exit();
     } else {
         echo "INVALID CREDENTIALS.\n";
