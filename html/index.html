@@ -13,27 +13,32 @@
     <title>Homepage</title>
 </head>
 <body>
-    <!-- <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script><script>linkvertise(231088, {whitelist: [], blacklist: [""]});</script> -->
     <header>
-        <nav id="nav">
-            <div id="nav_container">
-                <ul id="nav_list">
-                    <li class="nav_item">
-                        <a href="/" class="nav_link">Home</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="/contact" class="nav_link">Contact</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="/upload" class="nav_link">Upload</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="/tori-vazlatok" class="nav_link">Tori</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="/login" class="nav_link">Log in</a>
-                    </li>
-                </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">vb2007.ddns.net</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/upload">Upload</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/tori-vazlatok">Töri</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <a class="btn btn-outline-success" href="/login">Log in</a>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -60,7 +65,8 @@
     <footer>
         <p id="footer_text">VB2007 - 2022</p>
     </footer>
+    <!-- Scriptek alulra, hogy csak később legyen spammelve a konzol hibákkal.-->
+    <script src="asset/js/language_chooser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-<!-- Scriptek alulra, hogy csak később legyen spammelve a konzol hibákkal.-->
-<script src="asset/js/language_chooser.js"></script>
 </html>

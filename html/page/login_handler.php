@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    exit('POST request method required.');
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -27,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     } else {
         echo "INVALID CREDENTIALS.\n";
+        header("Location: /invalid-login");
     }
 
     $db->close();
