@@ -8,15 +8,9 @@ body, #content{
 
 #nav{
     /*<nav> tag*/
-    background-color: rgb(77, 18, 131);
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
+    background-color: rgba(74, 46, 100, 0.639);
+    height: 55px;
     position: sticky;
-    margin-top: 0px;
-    z-index: 999;
 }
 
 #nav_container{
