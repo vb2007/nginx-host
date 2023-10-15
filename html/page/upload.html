@@ -62,18 +62,20 @@
     <main class="container">
         <div id="content">
             <form class="upload-form" action="/page/upload.php" method="post" enctype="multipart/form-data">
-                <div class="upload-element">
-                    <label for="file"></label>
-                    <input type="file" id="file" name="fileToUpload">
+                <div class="upload-element mb-2 ms-5 me-5">
+                    <label class="form-label" for="file"></label>
+                    <input class="form-control" type="file" id="file" name="fileToUpload"/>
                 </div>
-                <div class="upload-element">
-                    <input type="submit" value="Upload File" name="submit">
+                <div class="justify-content-center mb-2 ms-5 me-5">
+                    <input class="form-control" type="submit" value="Upload File" name="submit">
                 </div>
             </form>
+            <hr>
             <div>
-                <p id="succesful-upload"></p>
+                <p class="ms-5 me-5" id="succesful-upload"></p>
             </div>
-            <divc class="container-fluid" id="progress" style="display:none;">
+            <hr>
+            <div class="container" id="progress" style="display:none;">
                 <div id="bar"></div>
                 <div id="percent">0%</div>
             </div>
