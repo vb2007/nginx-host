@@ -59,26 +59,24 @@
         </nav>
     </header>
     <!--Main content-->
-    <main class="container">
-        <div id="content">
-            <form class="upload-form" action="/page/upload.php" method="post" enctype="multipart/form-data">
-                <div class="upload-element mb-2 ms-5 me-5">
-                    <label class="form-label" for="file"></label>
-                    <input class="form-control" type="file" id="file" name="fileToUpload"/>
-                </div>
-                <div class="justify-content-center mb-2 ms-5 me-5">
-                    <input class="form-control" type="submit" value="Upload File" name="submit">
-                </div>
-            </form>
-            <hr>
-            <div>
-                <p class="ms-5 me-5" id="succesful-upload"></p>
+    <main id="content" class="container">
+        <form class="upload-form" action="/page/upload.php" method="post" enctype="multipart/form-data">
+            <div class="upload-element mb-2 ms-5 me-5">
+                <label class="form-label" for="file"></label>
+                <input class="form-control" type="file" id="file" name="fileToUpload"/>
             </div>
-            <hr>
-            <div class="container" id="progress" style="display:none;">
-                <div id="bar"></div>
-                <div id="percent">0%</div>
+            <div class="justify-content-center mb-2 ms-5 me-5">
+                <input class="form-control" type="submit" value="Upload File" name="submit">
             </div>
+        </form>
+        <hr>
+        <div>
+            <p class="ms-5 me-5" id="succesful-upload"></p>
+        </div>
+        <hr>
+        <div class="container" id="progress" style="display:none;">
+            <div id="bar"></div>
+            <div id="percent">0%</div>
         </div>
     </main>
     <!--Footer-->
