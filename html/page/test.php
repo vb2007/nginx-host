@@ -18,19 +18,6 @@
 <body>
     <header>
         <nav id="nav">
-            <!-- <div id="nav_container">
-                <ul id="nav_list">
-                    <li class="nav_item">
-                        <a href="/" class="nav_link"></a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="page/contact" class="nav_link"></a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="page/login" class="nav_link"></a>
-                    </li>
-                </ul>
-            </div> -->
         </nav>
     </header>
     <!---->
@@ -46,36 +33,54 @@
                 <div class="col-md-6 col-sm-12">
                     <div class="szoveg">2023 - 2024</div>
                     <ul class="list-unstyled">
-                      <?php
-                        $noteDirectory2023 = '../asset/vazlatok/10/';
-                        $notes2023 = scandir($noteDirectory2023);
-                        $notes2023 = array_diff($notes2023, array('..', '.'));
-                        natsort($notes2023);
-                        foreach ($notes2023 as $note) {
-                          echo '<li class="d-flex align-items-start mb-2">';
-                          echo '<a href="' . $noteDirectory2023 . $note . '">' . $note . '</a>';
-                          echo '</li>';
-                        }
-                      ?>
+                        <?php
+                            $noteDirectory = '../asset/vazlatok/10/';
+                            $notes = scandir($noteDirectory);
+                            $notes = array_diff($notes, array('..', '.'));
+                            natsort($notes);
+                            $notes = array_reverse($notes);
+                            foreach ($notes as $note) {
+                                //.docx levágása + felmetszés "_"-ok alapján
+                                $noteWithoutExtension = pathinfo($note, PATHINFO_FILENAME);
+                                $parts = explode('_', $noteWithoutExtension);
+                                //megjelenítési név formázása
+                                $displayName = str_replace('ora', '. óra - ', $parts[4]) . ' ' . ucwords(str_replace('_', ' ', implode(' ', array_slice($parts, 5))));
+                                //megjelenítés
+                                echo '<li class="d-flex align-items-start mb-2">';
+                                echo '<a href="' . $noteDirectory . $note . '">' . $displayName . '</a>';
+                                echo '</li>';
+                            }
+                        ?>
                     </ul>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="szoveg">2022 - 2023</div>
                     <ul class="list-unstyled">
-                      <?php
-                        $noteDirectory2022 = '../asset/vazlatok/9/';
-                        $notes2022 = scandir($noteDirectory2022);
-                        $notes2022 = array_diff($notes2022, array('..', '.'));
-                        natsort($notes2022);
-                        foreach ($notes2022 as $note) {
-                          echo '<li class="d-flex align-items-start mb-2">';
-                          echo '<a href="' . $noteDirectory2022 . $note . '">' . $note . '</a>';
-                          echo '</li>';
-                        }
-                      ?>
+                        <?php
+                            $noteDirectory = '../asset/vazlatok/9/';
+                            $notes = scandir($noteDirectory);
+                            $notes = array_diff($notes, array('..', '.'));
+                            natsort($notes);
+                            $notes = array_reverse($notes);
+                            foreach ($notes as $note) {
+                                //.docx levágása + felmetszés "_"-ok alapján
+                                $noteWithoutExtension = pathinfo($note, PATHINFO_FILENAME);
+                                $parts = explode('_', $noteWithoutExtension);
+                                //megjelenítési név formázása
+                                $displayName = str_replace('ora', '. óra - ', $parts[4]) . ' ' . ucwords(str_replace('_', ' ', implode(' ', array_slice($parts, 5))));
+                                // Convert the first character of the topic to uppercase
+                                //megjelenítés
+                                echo '<li class="d-flex align-items-start mb-2">';
+                                echo '<a href="' . $noteDirectory . $note . '">' . $displayName . '</a>';
+                                echo '</li>';
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="d-flex justify-content-center align-content-center mt-1 mb-3">
+            <button class="btn btn-primary"><a href="/page/upload-vazlat.html">Új feltöltése</a></button>
         </div>
     </main>
     <!---->
