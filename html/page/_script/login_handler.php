@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $db = new SQLite3('../data/users.db');
+    $db = new SQLite3('../../data/users.db');
     if (!$db) {
         die("Database connection failed: " . $db->lastErrorMsg());
     }

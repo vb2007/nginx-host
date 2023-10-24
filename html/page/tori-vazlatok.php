@@ -16,11 +16,12 @@
     <title>Töri vázlatok</title>
 </head>
 <body>
+    <!--Header-->
     <header>
         <nav id="nav">
         </nav>
     </header>
-    <!---->
+    <!--Main Content-->
     <main>
         <div class="d-flex justify-content-center align-content-center">
             <h1 class="text-white">Történelem vázlatok</h1>
@@ -34,7 +35,7 @@
                     <div class="szoveg">2023 - 2024</div>
                     <ul class="list-unstyled">
                         <?php
-                            $noteDirectory = '../asset/vazlatok/10/';
+                            $noteDirectory = '../../asset/vazlatok/10/';
                             $notes = scandir($noteDirectory);
                             $notes = array_diff($notes, array('..', '.'));
                             natsort($notes);
@@ -57,7 +58,7 @@
                     <div class="szoveg">2022 - 2023</div>
                     <ul class="list-unstyled">
                         <?php
-                            $noteDirectory = '../asset/vazlatok/9/';
+                            $noteDirectory = '../../asset/vazlatok/9/';
                             $notes = scandir($noteDirectory);
                             $notes = array_diff($notes, array('..', '.'));
                             natsort($notes);
@@ -83,11 +84,12 @@
             <button class="btn btn-primary"><a href="/page/upload-vazlat.html">Új feltöltése</a></button>
         </div>
     </main>
-    <!---->
+    <!--Footer-->
     <footer>
         <p id="footer_text">Köszi Galsa, hogy engedted a laptopon jegyzetelést :D</p>
         <p id="footer_text">VB2007 - 2023</p>
     </footer>
+    <!--Script import-->
     <script src="../asset/js/language_chooser.js"></script>
 </body>
 </html>
