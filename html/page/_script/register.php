@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$db) {
         die("Database connection failed: " . $db->lastErrorMsg());
     }
- 
+
     // Check if the username already exists in the database
     $query = $db->prepare("SELECT * FROM users WHERE username = :username");
     $query->bindParam(':username', $username);

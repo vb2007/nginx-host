@@ -16,7 +16,7 @@ for (var i = 0; i < chunks; i++) {
 function uploadChunk(chunk, i) {
     var xhr = new XMLHttpRequest();
 
-    xhr.open('POST', '../../page/upload.php', true);
+    xhr.open('POST', '../../page/_script/upload.php', true);
 
     xhr.setRequestHeader('X_CHUNK_NUMBER', i);
     xhr.setRequestHeader('X_TOTAL_CHUNKS', chunks);

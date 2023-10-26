@@ -9,7 +9,7 @@ document.querySelector('.upload-form').addEventListener('submit', function (e) {
   
   var xhr = new XMLHttpRequest();
   
-  xhr.open('POST', '/page/upload.php', true);
+  xhr.open('POST', '/page/_script/upload.php', true);
   
   xhr.upload.onprogress = function(e) {
     if (e.lengthComputable) {
