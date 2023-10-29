@@ -1,7 +1,9 @@
 <?php
-echo '<a href="/default.asp">Home</a> -
-<a href="/html/default.asp">HTML Tutorial</a> -
-<a href="/css/default.asp">CSS Tutorial</a> -
-<a href="/js/default.asp">JavaScript Tutorial</a> -
-<a href="default.asp">PHP Tutorial</a>';
+session_start();
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // User is not logged in
+    header("Location: /login.html");
+    exit();
+}
 ?>
