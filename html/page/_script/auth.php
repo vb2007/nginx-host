@@ -1,9 +1,14 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    // User is not logged in
-    header("Location: /login.html");
-    exit();
+if ($_SESSION['loggedin'] !== true) {
+    echo "<div>
+    <p><a href='/login'>Log in</a> with an account that has permissionss.</p>
+    </div>
+    ";
+    exit;
+}
+else{
+    continue;
 }
 ?>

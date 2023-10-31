@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query->bindParam(":email", $email);
         $query->execute();
 
-        echo "Registration successful. You can now <a href='../login'>login</a>.";
+        echo "Registration successful. You can now <a href='/login'>login</a>.";
     }
 
     $db->close();

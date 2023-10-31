@@ -5,7 +5,7 @@
 </head>
 <body>
     <h2>Registration</h2>
-    <form method="post" action="page/register.php">
+    <form method="post" action="page/_script/register.php">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
 

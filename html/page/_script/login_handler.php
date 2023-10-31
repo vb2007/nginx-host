@@ -21,16 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $result->fetchArray(SQLITE3_ASSOC);
 
     if ($user && $password === $user['password']) {
-        // $_SESSION['logged_in'] = true;
-        //$_SESSION['username'] = $username;
+        $_SESSION['loggedin'] = true;
 
-        setcookie("loggedin", "true", time() + 3600, "/");
+        //setcookie("loggedin", "true", time() + 3600, "/");
         
-        echo "Valid login. Welcome to the site.";
         header("Location: /welcome");
         exit();
     } else {
-        echo "INVALID CREDENTIALS.\n";
         header("Location: /invalid-login");
     }
 

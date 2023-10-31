@@ -81,12 +81,13 @@
             </div>
         </div>
         <div class="d-flex justify-content-center align-content-center mt-1 mb-3">
-            <button class="btn btn-primary"><a href="/page/upload-vazlat.html">Új feltöltése</a></button>
+            <button class="btn btn-primary"><a href="/page/upload-vazlat">Új feltöltése</a></button>
         </div>
     </main>
     <!--Footer-->
     <footer>
         <p id="footer_text">Köszi Galsa, hogy engedted a laptopon jegyzetelést :D</p>
+        <p id="footer_text">Hajrá fradi!</p>
         <p id="footer_text">VB2007 - 2023</p>
     </footer>
     <!--Script import-->

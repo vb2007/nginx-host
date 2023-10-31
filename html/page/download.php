@@ -60,6 +60,7 @@
     </header>
     <!--Main content-->
     <main id="content" class="container">
+    <?php include("_script/auth.php"); ?>
         <div class="text-center">
             <h1>Download</h1>
         </div>
