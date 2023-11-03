@@ -44,9 +44,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/download">Download</a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/tori-vazlatok">Töri</a>
-                        </li>
                     </ul>
                     <div class="d-flex">
                         <a class="btn btn-outline-success mb-2" href="/login">Log in</a>
@@ -61,7 +58,7 @@
     <!--Main content-->
     <main>
         <div class="container">
-            <p><a target="_blank" href="mailto:vagvolgyi.balazs.vb@gmail.com">write an email</a> or something if you want to</p>
+            <p><a target="_blank" href="mailto:vb2007.2023@gmail.com">write an email</a> or something if you want to</p>
             <p>or drop a message on <a href="https://t.me/VB2007_res" target="_new">telegram</a> (i'll respond there faster)</p>
         </div>
     </main>

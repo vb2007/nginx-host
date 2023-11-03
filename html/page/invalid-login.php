@@ -40,9 +40,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/download">Download</a>
                         </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/tori-vazlatok">Töri</a>
-                        </li>
                     </ul>
                     <div class="d-flex">
                         <a class="btn btn-outline-success mb-2" href="/login">Log in</a>

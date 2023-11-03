@@ -61,6 +61,15 @@
     </header>
     <!--Main content-->
     <main id="content" class="container">
+        <?php
+        if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+            continue;
+        }
+        else{
+            echo "<p>You're already logged in.</p>"
+            echo "<p>Maybe try <a href='page/_script/logout.php'>logging out</a> first.</p>"
+        }
+        ?>
         <form id="loginForm" action="/page/_script/login_handler.php" method="post">
             <div class="container">
                 <div class="row">

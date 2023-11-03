@@ -20,10 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $user = $result->fetchArray(SQLITE3_ASSOC);
 
-    if ($user && $password === $user['password']) {
+    if ($user && $hashedPassword === $user['hashedPassword']) {
         $_SESSION['loggedin'] = true;
-
-        //setcookie("loggedin", "true", time() + 3600, "/");
+        $_SESSION['username'] = $username;
         
         header("Location: /welcome");
         exit();

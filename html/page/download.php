@@ -1,3 +1,19 @@
+
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    // If not, redirect them to the login page
+    header("Location: /login");
+    exit();
+}
+else{
+    header("Location: /login");
+}
+// The rest of your download.php script goes here...
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,9 +60,6 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/download">Download</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/tori-vazlatok">Töri</a>
-                        </li>
                     </ul>
                     <div class="d-flex">
                         <a class="btn btn-outline-success mb-2" href="/login">Log in</a>
@@ -60,7 +73,6 @@
     </header>
     <!--Main content-->
     <main id="content" class="container">
-    <?php include("_script/auth.php"); ?>
         <div class="text-center">
             <h1>Download</h1>
         </div>

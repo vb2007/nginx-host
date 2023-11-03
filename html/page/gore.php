@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="#9415cf" data-react-helmet="true" name="theme-color" />
-    <meta content="Tököm tele mindennel, itt a gore" property="og:title" />
-    <meta content="kurva anyját a php-nak, fél óra volt megcsinálni ezt a kicseszett lapot" property="og:description" />
+    <meta content="duh gore..." property="og:title" />
+    <meta content="egyetek" property="og:description" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
     <!--Main Content-->
     <main>
         <div class="d-flex justify-content-center align-content-center">
-            <h1 class="text-white">faszom tele itt a gore</h1>
+            <h1 class="text-white">itt a gore, egyed</h1>
         </div>
         <div class="container">
             <div class="row">

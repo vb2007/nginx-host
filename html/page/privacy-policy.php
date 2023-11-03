@@ -23,9 +23,6 @@
                         <a href="/upload" class="nav_link">Upload</a>
                     </li>
                     <li class="nav_item">
-                        <a href="/tori-vazlatok" class="nav_link">Tori</a>
-                    </li>
-                    <li class="nav_item">
                         <a href="/login" class="nav_link">Log in</a>
                     </li>
                 </ul>
