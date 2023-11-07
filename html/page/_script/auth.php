@@ -9,6 +9,6 @@ if ($_SESSION['loggedin'] !== true) {
     exit;
 }
 else{
-    continue;
+    
 }
 ?>
