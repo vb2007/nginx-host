@@ -23,52 +23,22 @@
     <noscript>
         <p>Turn on javascript or get lost.</p>
     </noscript>
-    <!--Header-->
+    <!--Header (navbar)-->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="/">vb2007.ddns.net</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                          <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/contact">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/upload">Upload</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/download">Download</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/tori-vazlatok">Töri</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex">
-                        <a class="btn btn-outline-success mb-2" href="/login">Log in</a>
-                    </div>
-                    <div class="d-flex">
-                        <a class="btn btn-outline-success mb-2" href="/register_">Register</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <?php include '_common/navbar.php'; ?>
     </header>
     <!--Main content-->
-    <main id="content" class="container">
+    <main class="container">
         <?php
-        if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-            continue;
-        }
-        else{
-            echo "<p>You're already logged in.</p>"
-            echo "<p>Maybe try <a href='page/_script/logout.php'>logging out</a> first.</p>"
-        }
+            session_start();
+            if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+                
+            }
+            else{
+                echo "<p>You're already logged in.</p>";
+                echo "<p>Maybe try <a href='page/_script/logout.php'>logging out</a> first.</p>";
+                exit;
+            }
         ?>
         <form id="loginForm" action="/page/_script/login_handler.php" method="post">
             <div class="container">
@@ -105,9 +75,7 @@
         </form>
     </main>
     <!--Footer-->
-    <footer>
-        <p id="footer_text">VB2007 - 2023</p>
-    </footer>
+    <?php include '_common/footer.php'; ?>
     <!--Script import-->
     <script src="../asset/js/login_page_check.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

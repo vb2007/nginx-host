@@ -10,24 +10,7 @@
 </head>
 <body>
     <header>
-        <nav id="nav">
-            <div id="nav_container">
-                <ul id="nav_list">
-                    <li class="nav_item">
-                        <a href="/" class="nav_link">Home</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="/contact" class="nav_link">Contact</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="/upload" class="nav_link">Upload</a>
-                    </li>
-                    <li class="nav_item">
-                        <a href="/login" class="nav_link">Log in</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <?php include '_common/navbar.php'; ?>
     </header>
     <main>
         <div class="container justify-content-center">
