@@ -28,6 +28,7 @@
     </header>
     <!--Main content-->
     <main id="content" class="container">
+        <?php include("_script/auth.php"); ?>
         <form class="upload-form" action="/page/_script/tori_upload.php" method="post" enctype="multipart/form-data">
             <div class="upload-element mb-2 ms-5 me-5">
                 <label class="form-label" for="file"></label>
@@ -48,12 +49,9 @@
         </div>
     </main>
     <!--Footer-->
-    <footer>
-        <p id="footer_text">VB2007 - 2023</p>
-    </footer>
+    <?php include '_common/footer.php'; ?>
     <!--Script import-->
-    <script src="../asset/js/upload_progressbar.js"></script>
-    <script src="../asset/js/login_check.js"></script>
+    <script src="../asset/js/tori_upload_progressbar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
