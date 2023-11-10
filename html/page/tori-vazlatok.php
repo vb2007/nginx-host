@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-center align-content-center mt-1 mb-3">
-            <button class="btn btn-primary"><a href="/page/upload-vazlat">Új feltöltése</a></button>
+            <button class="btn btn-primary"><a class="link2" href="/tori-upload">Új feltöltése</a></button>
         </div>
     </main>
     <!--Footer-->
