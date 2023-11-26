@@ -29,6 +29,15 @@
     <!--Main content-->
     <main class="container">
         <?php include '_script/auth.php'; ?>
+        <form class="upload-form" action="/page/_script/shorten.php" method="post" enctype="multipart/form-data">
+            <div class="upload-element mb-2 ms-5 me-5">
+                <label class="form-label" for="url"></label>
+                <input type="text" id="url" name="url" placeholder="Enter your URL here">
+            </div>
+            <div class="justify-content-center mb-2 ms-5 me-5">
+                <input type="submit" value="Shorten URL">
+            </div>
+        </form>
     </main>
     <!--Footer-->
     <?php include '_common/footer.php'; ?>
