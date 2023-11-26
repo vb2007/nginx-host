@@ -1,4 +1,3 @@
-<?php include '_script/auth.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +28,7 @@
     </header>
     <!--Main content-->
     <main class="container">
+        <?php include '_script/auth.php'; ?>
         <div class="text-center">
             <h1>Download</h1>
         </div>

@@ -40,7 +40,7 @@
                 exit;
             }
         ?>
-        <form id="loginForm" action="/page/_script/login_handler.php" method="post">
+        <form id="loginForm" action="/page/_script/login.php" method="post">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
