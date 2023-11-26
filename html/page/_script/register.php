@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
 
     // Connect to the SQLite database (adjust the path as needed)
-    $db = new SQLite3('../../data/users.db');
+    $db = new SQLite3('../../data/data.db');
     if (!$db) {
         die("Database connection failed: " . $db->lastErrorMsg());
     }

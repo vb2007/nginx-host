@@ -13,9 +13,11 @@
     <title>Welcome</title>
 </head>
 <body>
+    <!--Header-->
     <header>
         <?php include '_common/navbar.php'; ?>
     </header>
+    <!--Main content-->
     <main>
         <div class="container justify-content-center">
             <h2>Welcome!</h2>
@@ -23,6 +25,7 @@
             <p>Go back to the <a href="/">homepage</a>.</p>
         </div>
     </main>
+    <!--Footer-->
     <?php include '_common/footer.php'; ?>
 </body>
 <!-- Scriptek alulra, hogy csak később legyen spammelve a konzol hibákkal.-->

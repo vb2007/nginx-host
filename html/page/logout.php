@@ -13,18 +13,19 @@
     <title>Logout</title>
 </head>
 <body>
+    <!--Header-->
     <header>
         <?php include '_common/navbar.php'; ?>
     </header>
+    <!--Main content-->
     <main>
         <div class="container justify-content-center">
             <p>You were logged out succesfully.</p>
             <p>Go back to the <a href="/">homepage</a>.</p>
         </div>
     </main>
-    <footer>
-        <p id="footer_text">VB2007 - 2022</p>
-    </footer>
+    <!--Footer-->
+    <?php include '_common/footer.php'; ?>
 </body>
 <!-- Scriptek alulra, hogy csak később legyen spammelve a konzol hibákkal.-->
 <script src="asset/js/language_chooser.js"></script>

@@ -49,9 +49,7 @@
         </div>
     </main>
     <!--Footer-->
-    <footer>
-        <p id="footer_text">VB2007 - 2023</p>
-    </footer>
+    <?php include '_common/footer.php'; ?>
     <!--Script import-->
     <script src="../asset/js/upload_progressbar.js"></script>
     <!-- <script src="../asset/js/login_check.js"></script> -->

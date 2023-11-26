@@ -9,9 +9,11 @@
     <title>Privacy policy</title>
 </head>
 <body>
+    <!--Header-->
     <header>
         <?php include '_common/navbar.php'; ?>
     </header>
+    <!--Main content-->
     <main>
         <div class="container justify-content-center">
             <p>To be hones, I don't give a fuck about this part.</p>
@@ -20,9 +22,8 @@
         </div>
         <hr>
     </main>
-    <footer>
-        <p id="footer_text">VB2007 - 2022</p>
-    </footer>
+    <!--Footer-->
+    <?php include '_common/footer.php'; ?>
 </body>
 <!-- Scriptek alulra, hogy csak később legyen spammelve a konzol hibákkal.-->
 <script src="asset/js/language_chooser.js"></script>

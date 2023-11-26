@@ -1,18 +1,4 @@
-<?php
-session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    // If not, redirect them to the login page
-    header("Location: /login");
-    exit();
-}
-else{
-    
-}
-// The rest of your download.php script goes here...
-?>
-
+<?php include '_script/auth.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,11 +51,7 @@ else{
         </div>
     </main>
     <!--Footer-->
-    <footer>
-        <div class="container">
-            <p id="footer_text">VB2007 - 2023</p>
-        </div>
-    </footer>
+    <?php include '_common/footer.php'; ?>
     <!--Script import-->
     <!--<script src="../asset/js/login_check.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
