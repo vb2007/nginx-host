@@ -29,7 +29,7 @@
     <!--Main content-->
     <main class="container">
         <?php include '_script/auth.php'; ?>
-        <form class="upload-form" action="/page/_script/shorten.php" method="post" enctype="multipart/form-data">
+        <form class="upload-form" id="url-form" action="/page/_script/shorten.php" method="post" enctype="multipart/form-data">
             <div class="upload-element mb-2 ms-5 me-5">
                 <label class="form-label" for="url"></label>
                 <input class="form-control" type="text" id="url" name="url" placeholder="Enter your URL here">
@@ -38,10 +38,14 @@
                 <input class="form-control" type="submit" value="Shorten URL">
             </div>
         </form>
+        <div class="container" id="shorturl">
+
+        </div>
     </main>
     <!--Footer-->
     <?php include '_common/footer.php'; ?>
     <!--Script import-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../asset/js/shortener_handler.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
