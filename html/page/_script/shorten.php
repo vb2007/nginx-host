@@ -23,10 +23,9 @@ if(isset($_POST['url'])) {
     $url = $_POST['url'];
 
     //megnézi az adatbázisban hogy rövidítve lett-e már a megírt link
-
     $result = $db->query("SELECT * FROM url_shortener WHERE url = '$url'");
+    //ha igen, a már rövidített linket használja
     if($row = $result->fetchArray()) {
-        // Long url already exists, use the existing short url
         $short_url = $row['short_url'];
     }
     else{
@@ -44,22 +43,22 @@ if(isset($_POST['url'])) {
         $db->exec("INSERT INTO url_shortener (url, short_url) VALUES ('$url', '$short_url')");
     }
 
-    echo "The link has been shortened successfully.<br>You can view it <a href='https://vb2007.hu/ref/$short_url'>here</a>:" ;
+    echo "The link has been shortened successfully.<br>You can view it at <a href='https://vb2007.hu/ref/$short_url'>https://vb2007.hu/ref/$short_url</a>:" ;
 
     exit;
 }
 
 //megnézi kérték-e a linket (get)
-// if(isset($_GET['short_url'])) {
-//     $short_url = $_GET['short_url'];
+if(isset($_GET['short_url'])) {
+    $short_url = $_GET['short_url'];
 
-//     //kiszedi az eredeti linket a táblából
-//     $result = $db->query("SELECT url FROM url_shortener WHERE short_url = '$short_url'");
+    //kiszedi az eredeti linket a táblából
+    $result = $db->query("SELECT url FROM url_shortener WHERE short_url = '$short_url'");
 
-//     //átirányít
-//     if($result) {
-//         $url = $result->fetchArray()['url'];
-//         header("Location: $url");
-//     }
-// }
+    //átirányít
+    if($result) {
+        $url = $result->fetchArray()['url'];
+        header("Location: $url");
+    }
+}
 ?>
