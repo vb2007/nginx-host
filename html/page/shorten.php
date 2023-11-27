@@ -32,17 +32,17 @@
         <form class="upload-form" action="/page/_script/shorten.php" method="post" enctype="multipart/form-data">
             <div class="upload-element mb-2 ms-5 me-5">
                 <label class="form-label" for="url"></label>
-                <input type="text" id="url" name="url" placeholder="Enter your URL here">
+                <input class="form-control" type="text" id="url" name="url" placeholder="Enter your URL here">
             </div>
             <div class="justify-content-center mb-2 ms-5 me-5">
-                <input type="submit" value="Shorten URL">
+                <input class="form-control" type="submit" value="Shorten URL">
             </div>
         </form>
     </main>
     <!--Footer-->
     <?php include '_common/footer.php'; ?>
     <!--Script import-->
-    <!--<script src="../asset/js/login_check.js"></script>-->
+    <script src="../asset/js/shortener_handler.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

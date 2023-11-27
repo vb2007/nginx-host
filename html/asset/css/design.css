@@ -51,11 +51,6 @@ body{
     transition: all 0.5 ease;
 }
 
-/* .cont{
-    margin-left: auto;
-    margin-right: auto;
-} */
-
 h1, h2{
     color: #fcfcfc;
 }
@@ -63,16 +58,12 @@ h1, h2{
 p{
     color: #fcfcfc;
     /* font-family: Arial, Helvetica, sans-serif; */
-    font-size: 34px;
+    font-size: 14px;
     text-align: justify;
 }
 
 .szoveg{
     color: #c5c2be;
-}
-
-#langselect_cont{
-    justify-items: center;
 }
 
 a{
@@ -83,10 +74,6 @@ a{
 a:hover{
     color: #ff2a2a;
     text-decoration: underline;
-}
-
-.link2:hover{
-    text-decoration: none;
 }
 
 footer{
@@ -101,10 +88,3 @@ footer{
 form{
     color: rgb(255, 255, 255);
 }
-
-/* .list-unstyled, li {
-    list-style-image: url("../../asset/media/docx_icon.png");
-    width: 20px;
-    height: auto;
-    padding-left: 1px; 
-} */

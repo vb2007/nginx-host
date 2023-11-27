@@ -5,15 +5,44 @@ $db = new SQLite3('../../data/data.db');
 //létrehozza a táblát (ha nem létezik)
 $db->exec("CREATE TABLE IF NOT EXISTS url_shortener(id INTEGER PRIMARY KEY, url TEXT, short_url TEXT)");
 
+//random url generáló függvény
+function generateRandomString($length = 4) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+
+    return $randomString;
+}
+
 //megnézi be van-e küldv a form (post)
 if(isset($_POST['url'])) {
     $url = $_POST['url'];
 
-    //random url-t generál
-    $short_url = substr(md5(uniqid(rand(), true)), 0, 10);
+    //megnézi az adatbázisban hogy rövidítve lett-e már a megírt link
 
-    //beteszi a linket a táblába
-    $db->exec("INSERT INTO url_shortener (url, short_url) VALUES ('$url', '$short_url')");
+    $result = $db->query("SELECT * FROM url_shortener WHERE url = '$url'");
+    if($row = $result->fetchArray()) {
+        // Long url already exists, use the existing short url
+        $short_url = $row['short_url'];
+    }
+    else{
+        $short_url = generateRandomString();
+
+        //megnézi létezik-e már az url az adatbázisban
+        $result = $db->query("SELECT * FROM url_shortener WHERE short_url = '$short_url'");
+        
+        while($result->fetchArray()) {
+            $short_url = generateRandomString();
+            $result = $db->query("SELECT * FROM url_shortener WHERE short_url = '$short_url'");
+        }
+
+        //beteszi a linket a táblába
+        $db->exec("INSERT INTO url_shortener (url, short_url) VALUES ('$url', '$short_url')");
+    }
 
     echo "The link has been shortened successfully.<br>You can view it <a href='https://vb2007.hu/ref/$short_url'>here</a>:" ;
 
@@ -21,16 +50,16 @@ if(isset($_POST['url'])) {
 }
 
 //megnézi kérték-e a linket (get)
-if(isset($_GET['short_url'])) {
-    $short_url = $_GET['short_url'];
+// if(isset($_GET['short_url'])) {
+//     $short_url = $_GET['short_url'];
 
-    //kiszedi az eredeti linket a táblából
-    $result = $db->query("SELECT url FROM url_shortener WHERE short_url = '$short_url'");
+//     //kiszedi az eredeti linket a táblából
+//     $result = $db->query("SELECT url FROM url_shortener WHERE short_url = '$short_url'");
 
-    //átirányít
-    if($result) {
-        $url = $result->fetchArray()['url'];
-        header("Location: $url");
-    }
-}
+//     //átirányít
+//     if($result) {
+//         $url = $result->fetchArray()['url'];
+//         header("Location: $url");
+//     }
+// }
 ?>

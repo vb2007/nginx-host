@@ -13,13 +13,13 @@
                   <a class="nav-link" href="/contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/upload">Upload</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/download">Download</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/shorten">Shorten</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/upload">Upload</a>
                 </li>
             </ul>
             <div class="d-flex">
