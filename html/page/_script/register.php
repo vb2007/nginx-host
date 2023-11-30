@@ -19,15 +19,15 @@ $result = $query->execute();
 $existingUser = $result->fetchArray(SQLITE3_ASSOC);
 
 if ($existingUser) {
-    echo "Username already exists. Please choose a different username.";
+    echo "Username already exists. Please choose a different one.";
     exit;
 } else {
     // Insert the new user into the database
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT); // Hash the password
-    $query = $db->prepare("INSERT INTO users (username, password, email) VALUES (:username, :password, :email)");
+    $query = $db->prepare("INSERT INTO users (username, password, email, registration_date) VALUES (:username, :password, :email, :dateAdded)");
     $query->bindParam(":username", $username);
     $query->bindParam(":password", $password);
     $query->bindParam(":email", $email);
+    $query->bindValue(":dateAdded", date('Y-m-d H:i:s'));
     $query->execute();
 
     echo "Registration successful. You can now <a href='/login'>login</a>.";
