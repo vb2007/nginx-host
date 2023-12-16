@@ -14,13 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Database connection failed: " . $db->lastErrorMsg());
     }
 
-    $query = $db->prepare("SELECT * FROM users WHERE username = :username");
+    $query = $db->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
     $query->bindParam(':username', $username);
+    $query->bindParam(':password', $password); 
     $result = $query->execute();
 
     $user = $result->fetchArray(SQLITE3_ASSOC);
 
-    if ($user && $hashedPassword === $user['hashedPassword']) {
+    if ($user && $password === $user['password']) {
         $_SESSION['loggedin'] = true;
         $_SESSION['username'] = $username;
         

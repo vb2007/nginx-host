@@ -3,7 +3,10 @@
 $db = new SQLite3('../../data/data.db');
 
 //létrehozza a táblát (ha nem létezik)
-$db->exec("CREATE TABLE IF NOT EXISTS url_shortener(id INTEGER PRIMARY KEY, url TEXT, short_url TEXT)");
+$db->exec("CREATE TABLE IF NOT EXISTS urlShortener(id INTEGER PRIMARY KEY, url TEXT, shortUrl TEXT, dateAdded TEXT)");
+if (!$db) {
+    die("Database connection failed: " . $db->lastErrorMsg());
+}
 
 //random url generáló függvény
 function generateRandomString($length = 4) {
@@ -23,37 +26,42 @@ if(isset($_POST['url'])) {
     $url = $_POST['url'];
 
     //megnézi az adatbázisban hogy rövidítve lett-e már a megírt link
-    $result = $db->query("SELECT * FROM url_shortener WHERE url = '$url'");
+    $result = $db->query("SELECT * FROM urlShortener WHERE url = '$url'");
     //ha igen, a már rövidített linket használja
     if($row = $result->fetchArray()) {
-        $short_url = $row['short_url'];
+        $shortUrl = $row['shortUrl'];
     }
     else{
-        $short_url = generateRandomString();
+        $shortUrl = generateRandomString();
+        $dateAdded = date('Y-m-d H:i:s');
 
         //megnézi létezik-e már az url az adatbázisban
-        $result = $db->query("SELECT * FROM url_shortener WHERE short_url = '$short_url'");
+        $result = $db->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
         
         while($result->fetchArray()) {
-            $short_url = generateRandomString();
-            $result = $db->query("SELECT * FROM url_shortener WHERE short_url = '$short_url'");
+            $shortUrl = generateRandomString();
+            $result = $db->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
         }
 
         //beteszi a linket a táblába
-        $db->exec("INSERT INTO url_shortener (url, short_url) VALUES ('$url', '$short_url')");
+        $query = $db->prepare('INSERT INTO urlShortener (url, shortUrl, dateAdded) VALUES (:url, :shortUrl, :dateAdded)');
+        $query->bindValue(':url', $url, SQLITE3_TEXT);
+        $query->bindValue(':shortUrl', $shortUrl, SQLITE3_TEXT);
+        $query->bindValue(':dateAdded', $dateAdded, SQLITE3_TEXT);
+        $query->execute();
     }
 
-    echo "The link has been shortened successfully.<br>You can view it at <a href='https://vb2007.hu/ref/$short_url'>https://vb2007.hu/ref/$short_url</a>:" ;
+    echo "The link has been shortened successfully.<br>You can view it at <a href='https://vb2007.hu/ref/$shortUrl'>https://vb2007.hu/ref/$shortUrl</a>:" ;
 
     exit;
 }
 
 //megnézi kérték-e a linket (get)
-if(isset($_GET['short_url'])) {
-    $short_url = $_GET['short_url'];
+if(isset($_GET['shortUrl'])) {
+    $shortUrl = $_GET['shortUrl'];
 
     //kiszedi az eredeti linket a táblából
-    $result = $db->query("SELECT url FROM url_shortener WHERE short_url = '$short_url'");
+    $result = $db->query("SELECT url FROM urlShortener WHERE shortUrl = '$shortUrl'");
 
     //átirányít
     if($result) {
