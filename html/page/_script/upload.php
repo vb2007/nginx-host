@@ -40,7 +40,7 @@ if ($_FILES["fileToUpload"]["error"] !== UPLOAD_ERR_OK) {
   }
 }
 
-$target_dir = "/var/www/html/html/uploads/";
+$target_dir = "/var/www/html/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $file_name = htmlspecialchars(basename($_FILES["fileToUpload"]["name"]));
 

@@ -29,25 +29,23 @@
     <!--Main content-->
     <main class="container">
         <?php include '_script/auth.php'; ?>
-        <div class="text-center">
-            <h1>Download</h1>
-        </div>
+        <h1 class="text-center my-2">Download</h1>
         <hr class="text-secondary">
-        <div class="align-content-center">
-            <h2 class="text-center">All types of free shit on one site</h2>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <h3 class="text-center text-primary">Software</h3>
-                </div>
-                <div class="col">
-                    <a href="../torrents/software/HitPaw.Video.Converter.v3.13-F4CG/f4cg-hpvc313-setup.exe">HitPaw Converter</a>
-                </div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
+        <h2 class="text-center mb-6">All types of free shit on one site</h2>
+        <div class="row mt-3">
+            <div class="col-12 col-lg-6">
+                <h3 class="text-center text-primary">Software</h3>
+                <p><a class="text" href="../extended-cdn/software/HitPaw-Video-Converter.zip">HitPaw Video Converter (&more)</a></p>
+                <p><a class="text" href="../extended-cdn/software/Magix-Vegas-Pro-v21.0.0.zip">Magix Vegas Pro v21.0.0</a></p>
+                <p><a class="text" href="../extended-cdn/software/FL-Studio-Producer-Edition-v21.1.0.zip">FL Studio Producer Edition v21.1.0</a></p>
+                <p><a class="text" href="../extended-cdn/software/Adobe-Photoshop-Portable-(Extended)-2013.zip">Adobe Photoshop Portable (Extended) 2013</a></p>
             </div>
+            <div class="col-12 col-lg-6">
+                <h3 class="text-center text-primary">Game</h3>
+            </div>
+            <!-- <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div> -->
         </div>
     </main>
     <!--Footer-->

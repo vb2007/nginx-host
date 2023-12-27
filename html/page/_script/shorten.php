@@ -18,11 +18,12 @@ function generateRandomString($length = 4) {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
 
-    return $randomString;
+     return $randomString;
 }
 
 //megnézi be van-e küldv a form (post)
 if(isset($_POST['url'])) {
+    include 'auth.php';
     $url = $_POST['url'];
 
     //megnézi az adatbázisban hogy rövidítve lett-e már a megírt link
