@@ -23,8 +23,17 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <a class="btn btn-outline-success me-2" href="/login">Log in</a>
-                <a class="btn btn-outline-success" href="/register">Register</a>
+                <?php
+                    session_start();
+                    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+                        echo "<a class='btn btn-outline-success me-2' href='/login'>Log in</a>";
+                        echo "<a class='btn btn-outline-success' href='/register'>Register</a>";
+                    }
+                    else{
+                        echo "<p><span class='me-2 mt-3'>Logged in as: " . $_SESSION['username'] . "</span></p>";
+                        echo "<a class='btn btn-outline-danger' href='/page/_script/logout.php'>Log out</a>";
+                    }
+                ?>
             </div>
         </div>
     </div>

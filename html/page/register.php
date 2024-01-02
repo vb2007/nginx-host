@@ -58,7 +58,7 @@
                         <div class="d-flex justify-content-center flex-wrap">
                             <div id="form_group" class="form-group form-inline mb-2 mx-2">
                                 <label for="email" id="form_label">E-mail:</label>
-                                <input id="email" class="form_field" type="email" name="password" required><br><br>
+                                <input id="email" class="form_field" type="email" name="email" required><br><br>
                             </div>
                         </div>
                     </div>
