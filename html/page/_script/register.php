@@ -6,7 +6,7 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 $email = $_POST["email"];
 
-// Connect to the SQLite database (adjust the path as needed)
+//sqlite adatbázishoz csatlakozik
 $db = new SQLite3('../../data/data.db');
 if (!$db) {
     die("Database connection failed: " . $db->lastErrorMsg());
@@ -14,7 +14,7 @@ if (!$db) {
 
 //$db->exec('CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, username TEXT, password TEXT, email TEXT, dateAdded TEXT)');
 
-// Check if the username already exists in the database
+//megnézi benne van-e már a felhasználónév az adatbázisban
 $query = $db->prepare("SELECT * FROM users WHERE username = :username");
 $query->bindParam(':username', $username);
 $result = $query->execute();

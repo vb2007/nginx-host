@@ -29,32 +29,50 @@
     </header>
     <!--Main content-->
     <main class="container">
-        <h2 class="text-center">Registration</h2>
+        <h2 class="text-center mt-2 mb-5">Registration</h2>
         <form method="post" action="page/_script/register.php">
             <div class="row">
                     <div class="col-md-12">
                         <div class="d-flex justify-content-center flex-wrap">
                             <div id="form_group" class="form-group form-inline mb-2 mx-2">
-                                <label for="username">Username:</label>
-                                <input id="username" type="text" name="username" required><br><br>
+                                <label for="username" id="form_label">Username</label>
+                                <input id="username" class="form_field" type="text" name="username" required><br><br>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <label for="username" id="form_label" class="mr-2">Username</label>
-            <input id="username" class="form_field" type="text" name="username"/>
-
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br><br>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email"><br><br>
-
-            <input type="submit" value="Register">
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <div id="form_group" class="form-group form-inline mb-2 mx-2">
+                                <label for="password" id="form_label">Password</label>
+                                <input id="password" class="form_field" type="password" name="password" required><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <div id="form_group" class="form-group form-inline mb-2 mx-2">
+                                <label for="email" id="form_label">E-mail:</label>
+                                <input id="email" class="form_field" type="email" name="password" required><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <div id="form_group" class="form-group form-inline mb-2 mx-2">
+                            <input type="submit" value="Register">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
     </main>
     <!--Footer-->
