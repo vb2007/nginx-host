@@ -24,7 +24,7 @@
             </ul>
             <div class="d-flex">
                 <a class="btn btn-outline-success me-2" href="/login">Log in</a>
-                <a class="btn btn-outline-success" href="/register_">Register</a>
+                <a class="btn btn-outline-success" href="/register">Register</a>
             </div>
         </div>
     </div>

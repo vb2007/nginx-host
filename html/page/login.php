@@ -40,34 +40,33 @@
                 exit;
             }
         ?>
+        <h1></h1>
         <form id="loginForm" action="/page/_script/login.php" method="post">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="d-flex justify-content-center flex-wrap">
-                            <div id="form_group" class="form-group form-inline mb-2 mx-2">
-                                <label for="username" id="form_label" class="mr-2">Username</label>
-                                <input id="username" class="form_field" type="text" name="username"/>
-                            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <div id="form_group" class="form-group form-inline mb-2 mx-2">
+                            <label for="username" id="form_label" class="mr-2">Username</label>
+                            <input id="username" class="form_field" type="text" name="username"/>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="d-flex justify-content-center flex-wrap">
-                            <div id="form_group" class="form-group form-inline mb-2 mx-2">
-                                <label for="password" id="form_label" class="mr-2">Password</label>
-                                <input id="password" class="form_field" type="password" name="password"/>
-                            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <div id="form_group" class="form-group form-inline mb-2 mx-2">
+                            <label for="password" id="form_label" class="mr-2">Password</label>
+                            <input id="password" class="form_field" type="password" name="password"/>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="d-flex justify-content-center flex-wrap">
-                            <div id="form_group" class="form-group form-inline mb-2 mx-2">
-                                <input type="submit" value="Login">
-                            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <div id="form_group" class="form-group form-inline mb-2 mx-2">
+                            <input type="submit" value="Login">
                         </div>
                     </div>
                 </div>
