@@ -30,14 +30,14 @@
         <h1 class="text-center my-2">404 Not Found</h1>
         <hr class="text-secondary">
         <h2 class="text-center mb-6">My server cannot find that content, sorry 'bout that :(</h2>
-        <p class="text-center mb-3">But hey, take this cat as token of my sympathy:</p>
+        <p class="text-center mb-3 h4">But hey, take this cat as token of my sympathy:</p>
         <img class="d-block mx-auto img-fluid rounded" src="../../asset/media/plink-cat-plink.gif" alt="cat.">
-        <p class="text-center">Better luck next time!</p>
+        <p class="text-center h4">Better luck next time!</p>
+        <p class="text-center h3 mt-3"><a href="/"><i>Country roads, take me home...</i></a></p>
     </main>
     <!--Footer-->
     <?php include '../_common/footer.php'; ?>
     <!--Script import-->
-    <!--<script src="../asset/js/login_check.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

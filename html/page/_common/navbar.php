@@ -30,7 +30,7 @@
                         echo "<a class='btn btn-outline-success' href='/register'>Register</a>";
                     }
                     else{
-                        echo "<p><span class='me-2 mt-3'>Logged in as: " . $_SESSION['username'] . "</span></p>";
+                        echo "<p><span class='me-2 mt-3'><b>Logged in as:</b> " . $_SESSION['username'] . "</span></p>";
                         echo "<a class='btn btn-outline-danger' href='/page/_script/logout.php'>Log out</a>";
                     }
                 ?>
