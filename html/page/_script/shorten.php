@@ -1,12 +1,12 @@
 <?php
 //sqlite adatbázishoz csatlakozik
 $db = new SQLite3('../../data/data.db');
-
-//létrehozza a táblát (ha nem létezik)
-$db->exec("CREATE TABLE IF NOT EXISTS urlShortener(id INTEGER PRIMARY KEY, url TEXT, shortUrl TEXT, dateAdded TEXT)");
 if (!$db) {
     die("Database connection failed: " . $db->lastErrorMsg());
 }
+
+//létrehozza a táblát (ha nem létezik)
+$db->exec("CREATE TABLE IF NOT EXISTS urlShortener(id INTEGER PRIMARY KEY, url TEXT, shortUrl TEXT, dateAdded TEXT)");
 
 //random url generáló függvény
 function generateRandomString($length = 4) {
@@ -18,7 +18,7 @@ function generateRandomString($length = 4) {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
 
-     return $randomString;
+    return $randomString;
 }
 
 //megnézi be van-e küldv a form (post)

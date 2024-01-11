@@ -7,12 +7,21 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 
 //sqlite adatbázishoz csatlakozik
-$db = new SQLite3('../../data/data.db');
+$db = new SQLite3('/var/www/html/data/data.db');
 if (!$db) {
     die("Database connection failed: " . $db->lastErrorMsg());
 }
 
-//$db->exec('CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, username TEXT, password TEXT, email TEXT, dateAdded TEXT)');
+//tábla létrehozása (ha még nem létezik)
+$db->exec('
+CREATE TABLE IF NOT EXISTS users(
+    id INTEGER PRIMARY KEY,
+    username TEXT,
+    password TEXT,
+    email TEXT,
+    gender TEXT,
+    dateAdded TEXT)
+');
 
 //megnézi benne van-e már a felhasználónév az adatbázisban
 $query = $db->prepare("SELECT * FROM users WHERE username = :username");
