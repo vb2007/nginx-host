@@ -5,7 +5,8 @@ session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // If not, redirect them to the login page
     echo "<div>
-    <p><a href='/login'>Log in</a> with an account that has permissionss.</p>
+    <p><a href='/login'>Log in</a> with an account that has permissions.</p>
+    <p>Or <a href='/register'>create a new one</a>, if you don't have already.</p>
     </div>
     ";
     exit();

@@ -30,8 +30,8 @@
         <h1 class="text-center my-2">404 Not Found</h1>
         <hr class="text-secondary">
         <p class="text-center h4 text-white">Better luck next time!</p>
-        <img class="d-block mx-auto img-fluid rounded" src="https://http.cat/404.jpg" alt="cat.">
-        <p class="text-center h3 mt-3"><a href="/"><i>Country roads, take me home...</i></a></p>
+        <img class="d-block mx-auto img-fluid rounded h-50" src="https://http.cat/404.jpg" alt="cat.">
+        <p class="text-center h3 mt-1"><a href="/"><i>Country roads, take me home...</i></a></p>
         <p class="text-center h5 mt-3 text-white">Credit to <a href="https://http.cat/">http.cat</a>.</p>
     </main>
     <!--Footer-->

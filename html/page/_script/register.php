@@ -5,6 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 $username = $_POST["username"];
 $password = $_POST["password"];
 $email = $_POST["email"];
+$gender = $_POST["gender"];
 
 //sqlite adatbázishoz csatlakozik
 $db = new SQLite3('/var/www/html/data/data.db');
@@ -34,10 +35,11 @@ if ($existingUser) {
     exit;
 } else {
     //beteszi az adatot a users sqlite3 táblába
-    $query = $db->prepare("INSERT INTO users (username, password, email, dateAdded) VALUES (:username, :password, :email, :dateAdded)");
+    $query = $db->prepare("INSERT INTO users (username, password, email, gender, dateAdded) VALUES (:username, :password, :email, :gender, :dateAdded)");
     $query->bindParam(':username', $username);
     $query->bindParam(':password', $password);
     $query->bindParam(':email', $email);
+    $query->bindParam(':gender', $gender);
     $query->bindValue(':dateAdded', date('Y-m-d H:i:s'));
     $query->execute();
 

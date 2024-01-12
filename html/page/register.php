@@ -65,6 +65,21 @@
                 </div>
             </div>
             <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <div id="form_group" class="form-group form-inline mb-2 mx-2">
+                                <label for="gender" class="mb-4">Gender:</label>
+                                <select name="gender" id="gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="attack-heli">Attack Helicopter</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex justify-content-center flex-wrap">
                         <div id="form_group" class="form-group form-inline mb-2 mx-2">
