@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--3rd party import-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    í
+    <!--Local import-->
+    <link rel="stylesheet" href="../../asset/css/design.css">
     <!--Title-->
     <title>404 Not Found</title>
 </head>
@@ -28,10 +29,10 @@
     <main class="container">
         <h1 class="text-center my-2">404 Not Found</h1>
         <hr class="text-secondary">
-        <p class="text-center h4">Better luck next time!</p>
-        <img class="d-block mx-auto img-fluid rounded" src="https://http.cat/502.jpg" alt="cat.">
+        <p class="text-center h4 text-white">Better luck next time!</p>
+        <img class="d-block mx-auto img-fluid rounded" src="https://http.cat/404.jpg" alt="cat.">
         <p class="text-center h3 mt-3"><a href="/"><i>Country roads, take me home...</i></a></p>
-        <p class="text-center h5 mt-3">Credit to <a href="https://http.cat/">http.cat</a>.</p>
+        <p class="text-center h5 mt-3 text-white">Credit to <a href="https://http.cat/">http.cat</a>.</p>
     </main>
     <!--Footer-->
     <?php include '../_common/footer.php'; ?>

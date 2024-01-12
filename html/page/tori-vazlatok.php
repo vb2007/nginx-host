@@ -27,7 +27,7 @@
             <h1 class="text-white">Történelem vázlatok</h1>
         </div>
         <div class="d-flex justify-content-center align-content-center">
-            <h2 class="text-white">2022 - 2023 - ...</h2>
+            <h2 class="text-white">2022 - 2023 - 2024 - ...</h2>
         </div>
         <div class="container">
             <div class="row">
@@ -35,7 +35,7 @@
                     <div class="szoveg">2023 - 2024</div>
                     <ul class="list-unstyled">
                         <?php
-                            $noteDirectory = '../extended-cdn/tori-vazlatok/2022_2023/';
+                            $noteDirectory = '../extended-cdn/tori-vazlatok/2023_2024/';
                             $notes = scandir($noteDirectory);
                             $notes = array_diff($notes, array('..', '.'));
                             natsort($notes);
@@ -58,7 +58,7 @@
                     <div class="szoveg">2022 - 2023</div>
                     <ul class="list-unstyled">
                         <?php
-                            $noteDirectory = '../extended-cdn/tori-vazlatok/2023_2024/';
+                            $noteDirectory = '../extended-cdn/tori-vazlatok/2022_2023/';
                             $notes = scandir($noteDirectory);
                             $notes = array_diff($notes, array('..', '.'));
                             natsort($notes);
@@ -69,7 +69,6 @@
                                 $parts = explode('_', $noteWithoutExtension);
                                 //megjelenítési név formázása
                                 $displayName = str_replace('ora', '. óra - ', $parts[4]) . ' ' . ucwords(str_replace('_', ' ', implode(' ', array_slice($parts, 5))));
-                                // Convert the first character of the topic to uppercase
                                 //megjelenítés
                                 echo '<li class="d-flex align-items-start mb-2">';
                                 echo '<a href="' . $noteDirectory . $note . '">' . $displayName . '</a>';

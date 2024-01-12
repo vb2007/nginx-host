@@ -31,7 +31,7 @@
         <hr class="text-secondary">
         <h2 class="text-center mb-6">My server cannot find that content, sorry 'bout that :(</h2>
         <p class="text-center mb-3 h4">But hey, take this cat as token of my sympathy:</p>
-        <img class="d-block mx-auto img-fluid rounded" src="https://http.cat/502.jpg" alt="cat.">
+        <img class="d-block mx-auto img-fluid rounded" src="https://http.cat/400.jpg" alt="cat.">
         <p class="text-center h4">Better luck next time!</p>
         <p class="text-center h3 mt-3"><a href="/"><i>Country roads, take me home...</i></a></p>
     </main>
