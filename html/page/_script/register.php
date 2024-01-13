@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS users(
     password TEXT,
     email TEXT,
     gender TEXT,
-    dateAdded TEXT)
-');
+    dateAdded TEXT
+)');
 
 //megnézi benne van-e már a felhasználónév az adatbázisban
 $query = $db->prepare("SELECT * FROM users WHERE username = :username");

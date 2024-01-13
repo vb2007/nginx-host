@@ -57,7 +57,7 @@
                     <div class="col-md-12">
                         <div class="d-flex justify-content-center flex-wrap">
                             <div id="form_group" class="form-group form-inline mb-2 mx-2">
-                                <label for="email" id="form_label">E-mail:</label>
+                                <label for="email" id="form_label">E-mail</label>
                                 <input id="email" class="form_field" type="email" name="email" required><br><br>
                             </div>
                         </div>
@@ -73,6 +73,12 @@
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="attack-heli">Attack Helicopter</option>
+                                    <option value="attila">Attila</option>
+                                    <option value="f15ex-eagle2">F-15EX Eagle II</option>
+                                    <option value="donald-trump">Donald Trump</option>
+                                    <option value="walmart-shopping-bag">Walmart Shopping Bag</option>
+                                    <option value="sebestyen-balazs">Sebestyén Balázs</option>
+                                    <option value="mayonaise">Mayonaise</option>
                                 </select>
                             </div>
                         </div>

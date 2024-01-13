@@ -17,3 +17,11 @@ sudo chmod 755 /var/www/html/data/data.db
 the cdn's folder should get cloned directly from the repo
 if not:
 ln -s /media/vb2007/2TB-HDD/extended-cdn /var/www/html/extended-cdn
+
+if session_start() fails with permission issues:
+sudo chmod -R 777 /var/www
+sudo chmod -R 777 /var/lib/php/
+sudo chown www-data:www-data -R /var/lib/php/
+
+for video compression:
+sudo apt install ffmpeg
