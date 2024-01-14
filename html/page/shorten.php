@@ -13,7 +13,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!--Local import-->
     <link rel="stylesheet" href="../asset/css/design.css">
-    <link rel="stylesheet" href="../asset/css/upload.css">
     <!--Title-->
     <title>Shorten links</title>
 </head>
@@ -43,8 +42,6 @@
         </div>
         <!--Display shortened links from the databse-->
         <?php
-            session_start();
-
             if ($_SERVER["REQUEST_METHOD"] !== "GET") {
                 exit("GET request method required.");
             }
@@ -54,25 +51,9 @@
                 die("Database connection failed: " . $db->lastErrorMsg());
             }
 
-            $query = $db->prepare("SELECT * FROM short WHERE username = :username AND password = :password");
-            $query->bindParam(':username', $username);
-            $query->bindParam(':password', $password); 
+            $query = $db->prepare("SELECT id, url, shortUrl, dateAdded FROM urlShortener");
             $result = $query->execute();
-
-            $user = $result->fetchArray(SQLITE3_ASSOC);
-
-            if ($user && $password === $user['password']) {
-                $_SESSION['loggedin'] = true;
-                $_SESSION['username'] = $username;
-                
-                header("Location: /welcome");
-                exit();
-            } else {
-                header("Location: /invalid-login");
-            }
-
-            $db->close();
-            ?>
+        ?>
         <h2 class="text-center text-white mt-6 mb-3">Links shortened by others</h2>
         <div class="container">
             <table class="table table-dark">
@@ -80,17 +61,19 @@
                     <th scope="col">Id</th>
                     <th scope="col">Original link</th>
                     <th scope="col">Shortened link</th>
-                    <th scope="col">View count</th>
+                    <!-- <th scope="col">View count</th> -->
                     <th scope="col">Shortened at</th>
-                    <th scope="col">Shortened by</th>
+                    <!-- <th scope="col">Shortened by</th> -->
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+                    <?php while ($link = $result->fetchArray(SQLITE3_ASSOC)): ?>
+                        <tr>
+                            <td><?php echo $link['id']; ?></td>
+                            <td><?php echo $link['url']; ?></td>
+                            <td><a href="https://vb2007.hu/ref/<?php echo $link['shortUrl']; ?>"><?php echo $link['shortUrl']; ?></a></td>
+                            <td><?php echo $link['dateAdded']; ?></td>
+                        </tr>
+                    <?php endwhile; ?>
                 </tbody>
             </table>
         </div>

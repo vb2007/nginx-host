@@ -87,3 +87,10 @@ footer{
 form{
     color: rgb(255, 255, 255);
 }
+
+/* Hosszú linkek elrejtése ... -al */
+td{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
