@@ -1,7 +1,6 @@
 fetch('https://api.geoapify.com/v1/ipinfo?apiKey=8c80401505ff4b0abee56fcf7e8191cb')
   .then(response => response.json())
   .then(data => {
-    // You can now access the location data in the "data" object
     console.log(data.country.iso_code);
     if (data.country.iso_code.toLowerCase() == "ro") {
       alert("ERDÉLY MAGYAR FÖLD ROMÁN GECI!!!!!!!");

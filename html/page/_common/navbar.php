@@ -31,6 +31,7 @@
                     }
                     else{
                         echo "<p><span class='me-2 mt-3'><b>Logged in as:</b> " . $_SESSION['username'] . "</span></p>";
+                        echo "<a class='btn btn-outline-primary me-2' href='/profile'>View profile</a>";
                         echo "<a class='btn btn-outline-danger' href='/page/_script/logout.php'>Log out</a>";
                     }
                 ?>

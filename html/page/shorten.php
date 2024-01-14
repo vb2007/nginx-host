@@ -41,6 +41,59 @@
         <div class="container my-3">
             <p class="text-center" id="shorturl"></p>
         </div>
+        <!--Display shortened links from the databse-->
+        <?php
+            session_start();
+
+            if ($_SERVER["REQUEST_METHOD"] !== "GET") {
+                exit("GET request method required.");
+            }
+
+            $db = new SQLite3('../data/data.db');
+            if (!$db) {
+                die("Database connection failed: " . $db->lastErrorMsg());
+            }
+
+            $query = $db->prepare("SELECT * FROM short WHERE username = :username AND password = :password");
+            $query->bindParam(':username', $username);
+            $query->bindParam(':password', $password); 
+            $result = $query->execute();
+
+            $user = $result->fetchArray(SQLITE3_ASSOC);
+
+            if ($user && $password === $user['password']) {
+                $_SESSION['loggedin'] = true;
+                $_SESSION['username'] = $username;
+                
+                header("Location: /welcome");
+                exit();
+            } else {
+                header("Location: /invalid-login");
+            }
+
+            $db->close();
+            ?>
+        <h2 class="text-center text-white mt-6 mb-3">Links shortened by others</h2>
+        <div class="container">
+            <table class="table table-dark">
+                <thead>
+                    <th scope="col">Id</th>
+                    <th scope="col">Original link</th>
+                    <th scope="col">Shortened link</th>
+                    <th scope="col">View count</th>
+                    <th scope="col">Shortened at</th>
+                    <th scope="col">Shortened by</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
     <!--Footer-->
     <?php include '_common/footer.php'; ?>
