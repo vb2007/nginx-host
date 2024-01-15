@@ -51,7 +51,7 @@
                 die("Database connection failed: " . $db->lastErrorMsg());
             }
 
-            $query = $db->prepare("SELECT id, url, shortUrl, dateAdded FROM urlShortener");
+            $query = $db->prepare("SELECT id, url, shortUrl, addedBy, dateAdded FROM urlShortener");
             $result = $query->execute();
         ?>
         <h2 class="text-center text-white mt-6 mb-3">Links shortened by others</h2>
@@ -63,7 +63,7 @@
                     <th scope="col">Shortened link</th>
                     <!-- <th scope="col">View count</th> -->
                     <th scope="col">Shortened at</th>
-                    <!-- <th scope="col">Shortened by</th> -->
+                    <th scope="col">Shortened by</th>
                 </thead>
                 <tbody>
                     <?php while ($link = $result->fetchArray(SQLITE3_ASSOC)): ?>
@@ -72,6 +72,7 @@
                             <td><?php echo $link['url']; ?></td>
                             <td><a href="https://vb2007.hu/ref/<?php echo $link['shortUrl']; ?>"><?php echo $link['shortUrl']; ?></a></td>
                             <td><?php echo $link['dateAdded']; ?></td>
+                            <td><?php echo $link['addedBy']; ?></td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>

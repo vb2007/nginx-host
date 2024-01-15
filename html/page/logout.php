@@ -19,9 +19,9 @@
     </header>
     <!--Main content-->
     <main>
-        <div class="container justify-content-center">
-            <p>You were logged out succesfully.</p>
-            <p>Go back to the <a href="/">homepage</a>.</p>
+        <div class="container">
+            <h2 class="text-center mt-6">You were logged out succesfully.</h2>
+            <h3 class="text-center my-3">Go back to the <a href="/">homepage</a>.</h3>
         </div>
     </main>
     <!--Footer-->

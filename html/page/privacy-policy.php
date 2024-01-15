@@ -16,11 +16,10 @@
     <!--Main content-->
     <main>
         <div class="container justify-content-center">
-            <p>To be hones, I don't give a fuck about this part.</p>
-            <p>I take the data that I need / want.</p>
+            <p>To be honest, I don't give a fuck about this part.</p>
+            <p>I take all the data that I want to take.</p>
             <p>Following the EU GDPR is gay.</p>
         </div>
-        <hr>
     </main>
     <!--Footer-->
     <?php include '_common/footer.php'; ?>

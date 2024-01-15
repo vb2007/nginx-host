@@ -89,8 +89,8 @@ form{
 }
 
 /* Hosszú linkek elrejtése ... -al */
-td{
+/* td{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+} */

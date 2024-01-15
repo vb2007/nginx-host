@@ -6,7 +6,7 @@ if (!$db) {
 }
 
 //létrehozza a táblát (ha nem létezik)
-$db->exec("CREATE TABLE IF NOT EXISTS urlShortener(id INTEGER PRIMARY KEY, url TEXT, shortUrl TEXT, dateAdded TEXT)");
+$db->exec("CREATE TABLE IF NOT EXISTS urlShortener(id INTEGER PRIMARY KEY, url TEXT, shortUrl TEXT, addedBy TEXT, dateAdded TEXT)");
 
 //random url generáló függvény
 function generateRandomString($length = 4) {
@@ -44,11 +44,15 @@ if(isset($_POST['url'])) {
             $result = $db->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
         }
 
+        //jelenleg bejelentkezett felhasználó neve
+        $addedBy = $_SESSION['username'];
+
         //beteszi a linket a táblába
-        $query = $db->prepare('INSERT INTO urlShortener (url, shortUrl, dateAdded) VALUES (:url, :shortUrl, :dateAdded)');
+        $query = $db->prepare('INSERT INTO urlShortener (url, shortUrl, addedBy, dateAdded) VALUES (:url, :shortUrl, :addedBy, :dateAdded)');
         $query->bindValue(':url', $url, SQLITE3_TEXT);
         $query->bindValue(':shortUrl', $shortUrl, SQLITE3_TEXT);
         $query->bindValue(':dateAdded', $dateAdded, SQLITE3_TEXT);
+        $query->bindValue(':addedBy', $addedBy, SQLITE3_TEXT);
         $query->execute();
     }
 
