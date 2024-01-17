@@ -1,4 +1,4 @@
-function register() {
+function registerUser() {
     var xhttp = new XMLHttpRequest();
   
     xhttp.onreadystatechange = function() {
@@ -8,9 +8,18 @@ function register() {
       }
     };
   
-    var url = document.getElementById("url").value;
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
+    var gender = document.getElementById("gender").value;
+
+    var registerData =
+        "username=" + encodeURIComponent(username) +
+        "&password=" + encodeURIComponent(password) + 
+        "&email=" + encodeURIComponent(email) + 
+        "&gender=" + encodeURIComponent(gender) ;
   
     xhttp.open("POST", "/page/_script/register.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("url=" + encodeURIComponent(url));
+    xhttp.send(registerData);
   }
