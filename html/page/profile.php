@@ -45,12 +45,20 @@
         <?php include '_script/auth.php'; ?>
         <div class="container">
             <h2 class="text-center mt-6">User information</h2>
+            <hr>
+            <h2>General info</h2>
+            <!-- <hr> -->
             <ul>
                 <li>User Id: <b><?php echo $userdata['id']; ?></b></li>
                 <li>Username: <b><?php echo $userdata['username']; ?></b></li>
                 <li>E-mail: <b><?php echo $userdata['email']; ?></b></li>
                 <li>Registration date: <b><?php echo $userdata['dateAdded']; ?></b></li>
                 <li>Gender: <b><?php echo $userdata['gender']; ?></b></li>
+            </ul>
+            <hr>
+            <ul>
+                <li>You can view your shortened links at the <a href="/shorten">shorten page</a>.</li>
+                <li>And your uploads at the <a href="/uploads">uploads page</a>.</li>
             </ul>
         </div>
     </main>

@@ -1,4 +1,5 @@
 <?php
+
 //sqlite adatbázishoz csatlakozik
 $db = new SQLite3('../../data/data.db');
 if (!$db) {
@@ -23,7 +24,7 @@ function generateRandomString($length = 4) {
 
 //megnézi be van-e küldv a form (post)
 if(isset($_POST['url'])) {
-    include 'auth.php';
+    include "auth.php";
     $url = $_POST['url'];
 
     //megnézi az adatbázisban hogy rövidítve lett-e már a megírt link

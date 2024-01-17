@@ -69,16 +69,17 @@
                         <div class="d-flex justify-content-center flex-wrap">
                             <div id="form_group" class="form-group form-inline mb-2 mx-2">
                                 <label for="gender" class="mb-4">Gender:</label>
-                                <select name="gender" id="gender">
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="attack-heli">Attack Helicopter</option>
-                                    <option value="attila">Attila</option>
-                                    <option value="f15ex-eagle2">F-15EX Eagle II</option>
-                                    <option value="donald-trump">Donald Trump</option>
-                                    <option value="walmart-shopping-bag">Walmart Shopping Bag</option>
-                                    <option value="sebestyen-balazs">Sebestyén Balázs</option>
-                                    <option value="mayonaise">Mayonaise</option>
+                                <select name="gender" id="gender" required>
+                                    <option value="0" selected disabled>--No gender selected--</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Attack Helicopter">Attack Helicopter</option>
+                                    <option value="Attila">Attila</option>
+                                    <option value="F-15EX Eagle II">F-15EX Eagle II</option>
+                                    <option value="Donald Trump">Donald Trump</option>
+                                    <option value="Walmart Shopping Bag">Walmart Shopping Bag</option>
+                                    <option value="Sebestyén Balázs">Sebestyén Balázs</option>
+                                    <option value="Mayonaise">Mayonaise</option>
                                 </select>
                             </div>
                         </div>

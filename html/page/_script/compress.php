@@ -1,4 +1,6 @@
 <?php
+include "auth.php";
+
 $target_dir = "/var/www/html/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
