@@ -20,7 +20,7 @@
     <!--Main content-->
     <main>
         <div class="container">
-            <h2 class="text-center mb-5">Welcome!</h2>
+            <h2 class="text-center mt-4 mb-5">Welcome!</h2>
             <p class="text-center">You were logged in succesfully.</p>
             <p class="text-center">Go back to the <a href="/">homepage</a>.</p>
         </div>

@@ -20,7 +20,7 @@
     <!--Main content-->
     <main>
         <div class="container">
-            <h2 class="text-center mt-6">You were logged out succesfully.</h2>
+            <h2 class="text-center mt-4">You were logged out succesfully.</h2>
             <h3 class="text-center my-3">Go back to the <a href="/">homepage</a>.</h3>
         </div>
     </main>
