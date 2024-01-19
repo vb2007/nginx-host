@@ -46,12 +46,17 @@
                 exit("GET request method required.");
             }
 
+            $recordsPerPage = 5;
+            $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+            $offset = ($page - 1) * $recordsPerPage;
+            $limit = $recordsPerPage;
+
             $db = new SQLite3('../data/data.db');
             if (!$db) {
                 die("Database connection failed: " . $db->lastErrorMsg());
             }
 
-            $query = $db->prepare("SELECT id, url, shortUrl, addedBy, dateAdded FROM urlShortener");
+            $query = $db->prepare("SELECT id, url, shortUrl, addedBy, dateAdded FROM urlShortener LIMIT $limit OFFSET $offset");
             $result = $query->execute();
         ?>
         <h2 class="text-center text-white mt-6 mb-3">Links shortened by others</h2>
@@ -77,6 +82,20 @@
                     <?php endwhile; ?>
                 </tbody>
             </table>
+            <div class="pagination">
+                <ul class="pagination">
+                    <?php
+                    $totalRecords = 10;
+                    $totalPages = ceil($totalRecords / $recordsPerPage);
+
+                    for ($i = 1; $i <= $totalPages; $i++):
+                        echo "<li class='page-item " . ($i == $page ? 'active' : '') . "'>";
+                        echo "<a class='page-link' href='?page=$i'>$i</a>";
+                        echo "</li>";
+                    endfor;
+                    ?>
+                </ul>
+            </div>
         </div>
     </main>
     <!--Footer-->
