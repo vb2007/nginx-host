@@ -24,7 +24,10 @@
             </ul>
             <div class="d-flex">
                 <?php
-                    session_start();
+                    if(!isset($_SESSION)) {
+                        session_start();
+                    }
+                    
                     if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                         echo "<a class='btn btn-outline-success me-2' href='/login'>Log in</a>";
                         echo "<a class='btn btn-outline-success' href='/register'>Register</a>";

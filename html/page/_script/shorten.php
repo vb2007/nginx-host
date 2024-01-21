@@ -1,5 +1,4 @@
 <?php
-
 //sqlite adatbázishoz csatlakozik
 $db = new SQLite3('../../data/data.db');
 if (!$db) {

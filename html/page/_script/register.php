@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    exit;
+    exit('POST request method required.');
 }
 $username = $_POST["username"];
 $password = $_POST["password"];

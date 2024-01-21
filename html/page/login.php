@@ -34,8 +34,8 @@
                 
             }
             else{
-                echo "<p>You're already logged in.</p>";
-                echo "<p>Maybe try <a href='page/_script/logout.php'>logging out</a> first.</p>";
+                echo "<h2 class='text-center mt-4'>You're already logged in.</h2>";
+                echo "<h3 class='text-center my-3'>Maybe try <a href='page/_script/logout.php'>logging out</a> first.</h3>";
                 exit;
             }
         ?>

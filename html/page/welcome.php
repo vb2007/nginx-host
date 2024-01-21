@@ -21,8 +21,8 @@
     <main>
         <div class="container">
             <h2 class="text-center mt-4 mb-5">Welcome!</h2>
-            <p class="text-center">You were logged in succesfully.</p>
-            <p class="text-center">Go back to the <a href="/">homepage</a>.</p>
+            <h3 class="text-center my-2">You were logged in succesfully.</h3>
+            <h3 class="text-center my-2">Go back to the <a href="/">homepage</a>.</h3>
         </div>
     </main>
     <!--Footer-->
