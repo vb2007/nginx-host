@@ -42,26 +42,26 @@
             <table class="table table-dark">
                 <thead>
                     <tr>
-                        <th class="col-12 col-md-4">
+                        <th class="col-4">
                             <p><a href="/download">Download</a></p>
                         </th>
-                        <th class="col-12 col-md-4">
+                        <th class="col-4">
                             <p><a href="/shorten">Shorten</a></p>
                         </th>
-                        <th class="col-12 col-md-4">
+                        <th class="col-4">
                             <p><a href="/upload">Upload</a></p>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="col-12 col-md-4">
+                        <td class="col-4">
                             <p>cracked games & software, and everything else (no need to thank me for sharing my torrents).</p>
                         </td>
-                        <td class="col-12 col-md-4">
+                        <td class="col-4">
                             <p>a random (or not random) link that you can access later.</p>
                         </td>
-                        <td class="col-12 col-md-4">
+                        <td class="col-4">
                             <p>some thing you can download later (I might just delete them)</p>
                         </td>
                     </tr>

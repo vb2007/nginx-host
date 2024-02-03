@@ -42,22 +42,31 @@
         </div>
         <!--Display shortened links from the databse-->
         <?php
+            // exits if the request type isn't post
             if ($_SERVER["REQUEST_METHOD"] !== "GET") {
                 exit("GET request method required.");
             }
-
-            $recordsPerPage = 5;
-            $page = isset($_GET["page"]) ? $_GET["page"] : 1;
-            $offset = ($page - 1) * $recordsPerPage;
-            $limit = $recordsPerPage;
-
+            
+            // gets the table's record count
             $db = new SQLite3('../data/data.db');
             if (!$db) {
                 die("Database connection failed: " . $db->lastErrorMsg());
             }
 
-            $query = $db->prepare("SELECT id, url, shortUrl, addedBy, dateAdded FROM urlShortener LIMIT $limit OFFSET $offset");
+            // set total record/page
+            $recordsPerPage = 5;
+            // if the page id isn't set, the id will be automatically 1 (first page)
+            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $startIndex = ($page - 1) * $recordsPerPage;
+
+            $query = $db->prepare("SELECT id, url, shortUrl, addedBy, dateAdded FROM urlShortener LIMIT $recordsPerPage OFFSET $startIndex");
             $result = $query->execute();
+
+            $totalRecordsQuery = $db->prepare("SELECT COUNT(*) as total FROM urlShortener");
+            $totalRecordsResult = $totalRecordsQuery->execute();
+            $totalRecords = (int)$totalRecordsResult->fetchArray(SQLITE3_ASSOC)['total'];
+            $totalPages = ceil($totalRecords / $recordsPerPage);
+            echo "$totalRecords, $totalPages";
         ?>
         <h2 class="text-center text-white mt-6 mb-3">Links shortened by others</h2>
         <div class="container">
@@ -84,16 +93,11 @@
             </table>
             <div class="pagination">
                 <ul class="pagination">
-                    <?php
-                    $totalRecords = 10;
-                    $totalPages = ceil($totalRecords / $recordsPerPage);
-
-                    for ($i = 1; $i <= $totalPages; $i++):
-                        echo "<li class='page-item " . ($i == $page ? 'active' : '') . "'>";
-                        echo "<a class='page-link' href='?page=$i'>$i</a>";
-                        echo "</li>";
-                    endfor;
-                    ?>
+                    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                        <li class="page-item <?php echo ($i == $page ? 'active' : ''); ?>">
+                            <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php endfor;?>
                 </ul>
             </div>
         </div>
