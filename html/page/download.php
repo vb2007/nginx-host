@@ -4,7 +4,7 @@
     <!--Settings-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="title" content="vb2007.ddns.net">
+    <meta name="title" content="vb2007.hu">
     <meta name="description" content="Just another general purpose site.">
     <meta name="author" content="VB2007">
     <meta name="keywords" content="vb2007, ddns, net, free, download, upload, 2022, 2023, 2024">
@@ -42,6 +42,13 @@
             </div>
             <div class="col-12 col-lg-6">
                 <h3 class="text-center text-primary">Game</h3>
+                <p><a class="text" href="../torrent/game/DOOM0.Eternal-CODEX/codex-doom.eternal.iso">Doom Eternal (CODEX)</a></p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <h3 class="text-center text-primary">Movie</h3>
+                <p><a class="text" href="../torrent/movie/Aquaman.and.the.Lost.Kingdom.2023.READ.NFO.MA.WEBRip.x264.HuN-No1/Aquaman.and.the.Lost.Kingdom.2023.READ.NFO.MA.WEBRip.x264.HuN-No1.mkv">Aquaman and the Lost Kingdom (2023)</a></p>
+                <p><a class="text" href="../torrent/movie/Avatar.The.Way.of.Water.2022.READ.NFO.1080p.MA.WEBRip.DDP5.1.Atmos.x264.HUN.ENG-PTHD/Avatar.The.Way.of.Water.2022.READ.NFO.1080p.MA.WEBRip.DDP5.1.Atmos.x264.HUN.ENG-PTHD.mkv">Avatar: The Way of Water (2022)</a></p>
+                <p><a class="text" href="../torrent/movie/Oppenheimer.2023.1080p.BluRay.DD5.1.x264-GalaxyRG[TGx]/Oppenheimer.2023.1080p.BluRay.DD5.1.x264-GalaxyRG.mkv">Oppenheimer (2023)</a></p>
             </div>
         </div>
     </main>
