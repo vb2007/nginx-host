@@ -69,8 +69,8 @@
             // echo "$totalRecords, $totalPages";
         ?>
         <h2 class="text-center text-white mt-6 mb-3">Links shortened by others</h2>
-        <p class="text-center"><i>Displaying URLs is a bit broken at the moment, please be patient.</i></p>
-        <p class="text-center">The core (shortening and redirecting) still works, so don't worry.</p>
+        <!-- <p class="text-center"><i>Displaying URLs is a bit broken at the moment, please be patient.</i></p>
+        <p class="text-center">The core (shortening and redirecting) still works, so don't worry.</p> -->
         <div class="container">
             <table class="table table-dark">
                 <thead>
