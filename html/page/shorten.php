@@ -42,11 +42,11 @@
         </div>
         <!--Display shortened links from the databse-->
         <?php
-            // exits if the request type isn't post
+            // exits if the request type isn't get
             if ($_SERVER["REQUEST_METHOD"] !== "GET") {
                 exit("GET request method required.");
             }
-            
+
             // gets the table's record count
             $db = new SQLite3('../data/data.db');
             if (!$db) {
@@ -54,7 +54,7 @@
             }
 
             // set total record/page
-            $recordsPerPage = 5;
+            $recordsPerPage = isset($_GET['recordsPerPage']) ? (int)$_GET['recordsPerPage'] : 10;
             // if the page id isn't set, the id will be automatically 1 (first page)
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             $startIndex = ($page - 1) * $recordsPerPage;
@@ -66,7 +66,6 @@
             $totalRecordsResult = $totalRecordsQuery->execute();
             $totalRecords = (int)$totalRecordsResult->fetchArray(SQLITE3_ASSOC)['total'];
             $totalPages = ceil($totalRecords / $recordsPerPage);
-            // echo "$totalRecords, $totalPages";
         ?>
         <h2 class="text-center text-white mt-6 mb-3">Links shortened by others</h2>
         <!-- <p class="text-center"><i>Displaying URLs is a bit broken at the moment, please be patient.</i></p>
@@ -93,14 +92,33 @@
                     <?php endwhile; ?>
                 </tbody>
             </table>
-            <div class="pagination">
-                <ul class="pagination">
-                    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                        <li class="page-item <?php echo ($i == $page ? 'active' : ''); ?>">
-                            <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                        </li>
-                    <?php endfor;?>
-                </ul>
+            <div class="row">
+                <div class="col-12 col-md-4 mb-1 mt-2 dropdown d-flex justify-content-start">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Records per page:
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item">10</a></li>
+                        <li><a class="dropdown-item">25</a></li>
+                        <li><a class="dropdown-item">50</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 pagination d-flex justify-content-center">
+                    <ul class="pagination">
+                        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                            <li class="page-item <?php echo ($i == $page ? 'active' : ''); ?>">
+                                <a class="page-link" href="?page=<?php echo $i; ?>&recordsPerPage=<?php echo $recordsPerPage; ?>"><?php echo $i; ?></a>
+                            </li>
+                        <?php endfor;?>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 d-flex justify-content-end">
+                    <!-- <form class="d-flex justify-content-end mb-5" id="records-per-page-form">
+                        <input type="number" id="records-per-page" name="records-per-page" min="1" value="<?php echo $recordsPerPage; ?>">
+                        <button type="submit">Apply</button>
+                    </form> -->
+                    <p>Showing page <?php echo $page; ?> of <?php echo $totalPages;?></p>
+                </div>
             </div>
         </div>
     </main>
