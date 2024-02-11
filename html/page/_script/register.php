@@ -10,7 +10,8 @@ $gender = $_POST["gender"];
 //sqlite adatbázishoz csatlakozik
 $db = new SQLite3('/var/www/html/data/data.db');
 if (!$db) {
-    die("Database connection failed: " . $db->lastErrorMsg());
+    // die("Database connection failed: " . $db->lastErrorMsg());
+    die("Database connection failed.");
 }
 
 //tábla létrehozása (ha még nem létezik)
@@ -33,11 +34,15 @@ $existingUser = $result->fetchArray(SQLITE3_ASSOC);
 if ($existingUser) {
     echo "Username already exists. Please choose a different one.";
     exit;
-} else {
+}
+else {
+    //jelszó hashelés insert előtt
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
     //beteszi az adatot a users sqlite3 táblába
     $query = $db->prepare("INSERT INTO users (username, password, email, gender, dateAdded) VALUES (:username, :password, :email, :gender, :dateAdded)");
     $query->bindParam(':username', $username);
-    $query->bindParam(':password', $password);
+    $query->bindParam(':password', $hashedPassword);
     $query->bindParam(':email', $email);
     $query->bindParam(':gender', $gender);
     $query->bindValue(':dateAdded', date('Y-m-d H:i:s'));
