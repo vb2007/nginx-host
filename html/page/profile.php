@@ -39,20 +39,24 @@
                 die("Database connection failed: " . $db->lastErrorMsg());
             }
 
+            //username állítása sessionből
             $username = $_SESSION['username'];
 
+            //felhasználói adatok kiszedése a táblából
             $query = $db->prepare("SELECT id, username, email, gender, dateAdded, password FROM users WHERE username = :username");
             $query->bindParam(':username', $username);
-
             $result = $query->execute();
-
             $userdata = $result->fetchArray(SQLITE3_ASSOC);
+
+            //felhasználó által rövidített linkek kiszedése a táblából
+            $queryLinks = $db->prepare("SELECT id, url, shortUrl, dateAdded FROM urlShortener WHERE addedBy = :username");
+            $queryLinks->bindParam(':username', $username);
+            $userlinks = $queryLinks->execute();
         ?>
         <div class="container">
             <h2 class="text-center mt-4">User information</h2>
             <hr>
             <h2>General info</h2>
-            <!-- <hr> -->
             <ul>
                 <li>User Id: <b><?php echo $userdata['id']; ?></b></li>
                 <li>Username: <b><?php echo $userdata['username']; ?></b></li>
@@ -61,10 +65,27 @@
                 <li>Gender: <b><?php echo $userdata['gender']; ?></b></li>
             </ul>
             <hr>
-            <ul>
-                <li>You can view your shortened links at the <a href="/shorten">shorten page</a>.</li>
-                <li>And your uploads at the <a href="/uploads">uploads page</a>.</li>
-            </ul>
+            <h2>Your shortened links: </h2>
+            <table class="table table-dark">
+                <thead>
+                    <th scope="col">Id</th>
+                    <th scope="col">Original link</th>
+                    <th scope="col">Shortened link</th>
+                    <!-- <th scope="col">View count</th> -->
+                    <th scope="col">Shortened at</th>
+                    <!-- <th scope="col">Shortened by</th> -->
+                </thead>
+                <tbody>
+                    <?php while ($link = $userlinks->fetchArray(SQLITE3_ASSOC)): ?>
+                        <tr>
+                            <td><?php echo $link['id']; ?></td>
+                            <td><?php echo $link['url']; ?></td>
+                            <td><a href="https://vb2007.hu/ref/<?php echo $link['shortUrl']; ?>"><?php echo $link['shortUrl']; ?></a></td>
+                            <td><?php echo $link['dateAdded']; ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
         </div>
     </main>
     <!--Footer-->
