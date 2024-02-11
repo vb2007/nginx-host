@@ -1,26 +1,3 @@
-<?php
-    include '_script/auth.php';
-
-    session_start();
-
-    if ($_SERVER["REQUEST_METHOD"] !== "GET") {
-        exit("GET request method required.");
-    }
-
-    $db = new SQLite3('../data/data.db');
-    if (!$db) {
-        die("Database connection failed: " . $db->lastErrorMsg());
-    }
-
-    $username = $_SESSION['username'];
-
-    $query = $db->prepare("SELECT id, username, email, gender, dateAdded, password FROM users WHERE username = :username");
-    $query->bindParam(':username', $username);
-
-    $result = $query->execute();
-
-    $userdata = $result->fetchArray(SQLITE3_ASSOC);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="../asset/css/design.css">
-    <title>User Info: <?php echo $userdata['username']; ?></title>
+    <title><?php 
+        session_start();
+
+        if (isset($_SESSION['loggedin'])) {
+            echo "User Info: ", $_SESSION['username'];
+        }
+        else {
+            echo "User Info: Login required";
+        }
+    ?></title>
 </head>
 <body>
     <!--Header-->
@@ -43,8 +29,27 @@
     <!--Main content-->
     <main class="container">
         <?php include '_script/auth.php'; ?>
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] !== "GET") {
+                exit("GET request method required.");
+            }
+
+            $db = new SQLite3('../data/data.db');
+            if (!$db) {
+                die("Database connection failed: " . $db->lastErrorMsg());
+            }
+
+            $username = $_SESSION['username'];
+
+            $query = $db->prepare("SELECT id, username, email, gender, dateAdded, password FROM users WHERE username = :username");
+            $query->bindParam(':username', $username);
+
+            $result = $query->execute();
+
+            $userdata = $result->fetchArray(SQLITE3_ASSOC);
+        ?>
         <div class="container">
-            <h2 class="text-center mt-6">User information</h2>
+            <h2 class="text-center mt-4">User information</h2>
             <hr>
             <h2>General info</h2>
             <!-- <hr> -->

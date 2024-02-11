@@ -3,6 +3,6 @@ if(!isset($_SESSION)) {
     session_start();
 }
 
-$_SESSION['loggedin'] = false;
+session_destroy(); //deletes all session variables
 header("Location: /logout");
 ?>

@@ -27,12 +27,6 @@
     </header>
     <!--Main content-->
     <main>
-        <!-- <div class="container justify-content-center">
-            <p>This site is currently restricted.</p>
-            <p>Only authorized users can view it's content.</p>
-            <p>In case if you have an account, <a href="/login">log in</a>.</p>
-        </div>
-        <hr> -->
         <div class="container">
             <h1 class="text-center">Welcome home!</h1>
             <div>
