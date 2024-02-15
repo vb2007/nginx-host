@@ -23,5 +23,8 @@ sudo chmod -R 777 /var/www
 sudo chmod -R 777 /var/lib/php/
 sudo chown www-data:www-data -R /var/lib/php/
 
+if user cannot upload:
+sudo chown www-data:www-data -R /media/vb2007/2TB-HDD/extended-cdn/uploads
+
 for video compression:
 sudo apt install ffmpeg
