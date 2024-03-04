@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../asset/css/design.css">
+    <!-- <link rel="stylesheet" href="../asset/css/design.css"> -->
+    <link rel="stylesheet" href="../asset/css/tori-fradi.css">
     <title>Töri vázlatok</title>
 </head>
 <body>
@@ -24,16 +25,23 @@
     <!--Main Content-->
     <main>
         <div class="d-flex justify-content-center align-content-center">
-            <h1 class="text-white">Történelem vázlatok</h1>
+            <h1 class="mt-3">Történelem vázlatok</h1>
         </div>
         <div class="d-flex justify-content-center align-content-center">
-            <h2 class="text-white">2022 - 2023 - 2024 - ...</h2>
+            <h2 class="mt-1 mb-3">2022 - 2023 - 2024 - ...</h2>
         </div>
         <div class="container">
-            <div class="row">
+            <div id="vazlat-container" class="row mb-2">
+                <div class="col-md-6 col-sm-12 d-block mx-auto input-group">
+                    <form id="search-form" class="d-block">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Keresés...">
+                    </form>
+                </div>
+            </div>
+            <div id="vazlat-container" class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="szoveg">2023 - 2024</div>
-                    <ul class="list-unstyled">
+                    <ul id="vazlat-lista" class="list-unstyled">
                         <?php
                             $noteDirectory = '../extended-cdn/tori-vazlatok/2023_2024/';
                             $notes = scandir($noteDirectory);
@@ -56,7 +64,7 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="szoveg">2022 - 2023</div>
-                    <ul class="list-unstyled">
+                    <ul id="vazlat-lista" class="list-unstyled">
                         <?php
                             $noteDirectory = '../extended-cdn/tori-vazlatok/2022_2023/';
                             $notes = scandir($noteDirectory);
@@ -91,5 +99,6 @@
     </footer>
     <!--Script import-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./../../asset/js/tori_dynamic_search.js"></script>
 </body>
 </html>
