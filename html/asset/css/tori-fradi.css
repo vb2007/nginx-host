@@ -35,6 +35,12 @@ p{
     color: #009708;
 }
 
+/* bootstrap keresődoboz egyedi színe */
+.form-control:focus {
+    border-color: #0ace00;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.055), 0 0 8px rgba(0, 255, 51, 0.6);
+}
+
 a{
     color: #0ace00;
     text-decoration: none;
