@@ -12,7 +12,6 @@
     <!--3rd party import-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!--Local import-->
-    <link rel="icon" type="image/x-icon" href="asset/media/favicon.ico">
     <link rel="stylesheet" href="../asset/css/design.css">
     <link rel="stylesheet" href="../asset/css/login.css">
     <!--Title-->
@@ -89,6 +88,13 @@
                     </div>
                 </div>
             </div>
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center flex-wrap">
+                    <div class="g-recaptcha" data-sitekey="6LeR-Y4pAAAAALg6taNLT6HDPj-IyxJ8S6fySuQG"></div>
+                    </div>
+                </div>
+            </div> -->
             <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex justify-content-center flex-wrap">
@@ -105,5 +111,6 @@
     <!--Script import-->
     <script src="../asset/js/register_handler.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 </body>
 </html>
