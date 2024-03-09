@@ -34,24 +34,44 @@
                 exit("GET request method required.");
             }
 
-            $db = new SQLite3('../data/data.db');
-            if (!$db) {
-                die("Database connection failed: " . $db->lastErrorMsg());
-            }
+            include_once("_script/_config.php");
+
+            // $db = new SQLite3('../data/data.db');
+            // if (!$db) {
+            //     die("Database connection failed: " . $db->lastErrorMsg());
+            // }
 
             //username állítása sessionből
             $username = $_SESSION['username'];
-
+            
             //felhasználói adatok kiszedése a táblából
-            $query = $db->prepare("SELECT id, username, email, gender, dateAdded, password FROM users WHERE username = :username");
-            $query->bindParam(':username', $username);
-            $result = $query->execute();
-            $userdata = $result->fetchArray(SQLITE3_ASSOC);
+
+            //sqlite3-al:
+            // $query = $db->prepare("SELECT id, username, email, gender, dateAdded, password FROM users WHERE username = :username");
+            // $queryUser->bindParam(':username', $username);
+            // $userdata = $queryUser->execute();
+            // $userdata = $result->fetchArray(SQLITE3_ASSOC);
+           
+            $queryUser = $mysqli->prepare("SELECT id, username, email, gender, dateAdded, password FROM users WHERE username = ?");
+            $queryUser->bind_param('s', $username);
+            $queryUser->execute();
+            $userdata = $queryUser->get_result()->fetch_assoc();
+            $queryUser->close();
+            
 
             //felhasználó által rövidített linkek kiszedése a táblából
-            $queryLinks = $db->prepare("SELECT id, url, shortUrl, dateAdded FROM urlShortener WHERE addedBy = :username");
-            $queryLinks->bindParam(':username', $username);
-            $userlinks = $queryLinks->execute();
+
+            //sqlite3-al:
+            // $queryLinks = $db->prepare("SELECT id, url, shortUrl, dateAdded FROM urlShortener WHERE addedBy = :username");
+            // $queryLinks->bindParam(':username', $username);
+            // $userlinks = $queryLinks->execute();
+
+            $queryLinks = $mysqli->prepare("SELECT id, url, shortUrl, dateAdded FROM urlShortener WHERE addedBy = ?");
+            $queryLinks->bind_param('s', $username);
+            $queryLinks->execute();
+            $queryLinks->bind_result($id, $url, $shortUrl, $dateAdded);
+            // $userlinks = $queryLinks->get_result()->fetch_assoc();
+            // $queryLinks->close();
         ?>
         <div class="container">
             <h2 class="text-center mt-4">User information</h2>
@@ -76,14 +96,15 @@
                     <!-- <th scope="col">Shortened by</th> -->
                 </thead>
                 <tbody>
-                    <?php while ($link = $userlinks->fetchArray(SQLITE3_ASSOC)): ?>
+                    <!-- DON'T TOUCH IT, DON'T TRY UNDERSTAND IT. it works. leave it alone. -->
+                    <?php while ($queryLinks->fetch()) { ?>
                         <tr>
-                            <td><?php echo $link['id']; ?></td>
-                            <td><?php echo $link['url']; ?></td>
-                            <td><a href="https://vb2007.hu/ref/<?php echo $link['shortUrl']; ?>"><?php echo $link['shortUrl']; ?></a></td>
-                            <td><?php echo $link['dateAdded']; ?></td>
+                            <td><?php echo $id; ?></td>
+                            <td><?php echo $url; ?></td>
+                            <td><a href="https://vb2007.hu/ref/<?php echo $shortUrl; ?>"><?php echo $shortUrl; ?></a></td>
+                            <td><?php echo $dateAdded; ?></td>
                         </tr>
-                    <?php endwhile; ?>
+                    <?php } $queryLinks->close(); ?>
                 </tbody>
             </table>
         </div>

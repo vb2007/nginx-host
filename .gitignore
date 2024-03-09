@@ -2,3 +2,5 @@ html/data
 html/uploads
 html/torrent
 html/asset/vazlatok
+html/page/_script/_config.php
+sqlite_dump.sql

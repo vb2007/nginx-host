@@ -91,7 +91,7 @@
             <!-- <div class="row">
                 <div class="col-md-12">
                     <div class="d-flex justify-content-center flex-wrap">
-                    <div class="g-recaptcha" data-sitekey="6LeR-Y4pAAAAALg6taNLT6HDPj-IyxJ8S6fySuQG"></div>
+                    <div class="g-recaptcha" data-sitekey=""></div>
                     </div>
                 </div>
             </div> -->
