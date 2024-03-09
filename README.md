@@ -11,9 +11,11 @@ The site is currently running on a Debian linux server.
 
 ### Installing packages
 
-Install the required packages with (php version can change over time. ffmpeg is optional, because the compressing page currently isn't functional (the server couldn't even handle it lol)):
+Install the required packages with (php version can change over time. Ffmpeg is optional, because the compressing page currently isn't functional (the server couldn't even handle it lol)):
 
-```sudo apt install nginx php php-fpm php8.2-mysqli mariadb```
+```
+sudo apt install nginx php php-fpm php8.2-mysqli mariadb
+```
 
 ### Modifying the config files
 
@@ -25,10 +27,15 @@ But I've only changed the max upload & post request size and enabled the mysql e
 
 ### Setting relevant permissions
 
-The cdn's folder should get cloned automatically from the repo. If not:
-```ln -s /media/vb2007/2TB-HDD/extended-cdn /var/www/html/extended-cdn```
+The cdn's folder should get cloned automatically from the repo.
+If not:
+
+```
+ln -s /media/vb2007/2TB-HDD/extended-cdn /var/www/html/extended-cdn
+```
 
 if ***session_start()*** fails with permission issues:
+
 ```
 sudo chmod -R 777 /var/www
 sudo chmod -R 777 /var/lib/php/
@@ -36,6 +43,7 @@ sudo chown www-data:www-data -R /var/lib/php/
 ```
 
 If users cannot upload:
+
 ```
 sudo chown www-data:www-data -R /media/vb2007/2TB-HDD/extended-cdn/uploads
 ```
@@ -54,6 +62,7 @@ sudo chmod 755 /var/www/html/data/data.db
 
 There are a few config files, but only ```html/page/_script/_config.php``` is necessary for proper functionality. Then the **$mysqli** value should be used in queries (after importing the script).
 It should look like this:
+
 ```php
 <?php
 //Configuration values
