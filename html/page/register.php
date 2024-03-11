@@ -60,7 +60,7 @@
                         <div class="d-flex justify-content-center flex-wrap">
                             <div id="form_group" class="form-group form-inline mb-2 mx-2">
                                 <label for="email" id="form_label">E-mail</label>
-                                <input id="email" class="form_field" type="email" name="email" required><br><br>
+                                <input id="email" class="form_field" type="email" name="email"><br><br>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                         <div class="d-flex justify-content-center flex-wrap">
                             <div id="form_group" class="form-group form-inline mb-2 mx-2">
                                 <label for="gender" class="mb-4">Gender:</label>
-                                <select name="gender" id="gender" required>
+                                <select name="gender" id="gender">
                                     <option value="0" selected disabled>--No gender selected--</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>

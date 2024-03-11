@@ -84,11 +84,15 @@ The ```html/sitemap.xml``` is only for search engine's indexing bots.
 
 Run the installation script with:
 
-```sudo mysql_secure_installation```
+```
+sudo mysql_secure_installation
+```
 
 Use the following command to open MariaDB as root:
 
-```sudo mysql -u root -p```
+```
+sudo mysql -u root -p
+```
 
 Create the **nginxdata** database with:
 
