@@ -2,6 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     exit('POST request method required.');
 }
+
 $username = $_POST["username"];
 $password = $_POST["password"];
 $email = $_POST["email"];
@@ -16,7 +17,7 @@ include_once("_config.php");
 // }
 
 //tábla létrehozása (ha még nem létezik)
-// $mysqli->execute('
+// $mysqli->execute("
 // CREATE TABLE IF NOT EXISTS `users` (
 //     `id`    INTEGER,
 //     `username`  TEXT,
@@ -25,7 +26,7 @@ include_once("_config.php");
 //     `gender`    TEXT,
 //     `dateAdded` DATETIME,
 //     PRIMARY KEY(`id`)
-// )');
+// )");
 
 //megnézi benne van-e már a felhasználónév az adatbázisban
 $query = $mysqli->prepare("SELECT username FROM users WHERE username = ?");

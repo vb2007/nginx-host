@@ -1,12 +1,22 @@
 <?php
-//sqlite adatbázishoz csatlakozik
-$db = new SQLite3('../../data/data.db');
-if (!$db) {
-    die("Database connection failed: " . $db->lastErrorMsg());
-}
+//sql adatbázishoz csatlakozik
+
+include_once("_config.php");
+
+// $db = new SQLite3('../../data/data.db');
+// if (!$db) {
+//     die("Database connection failed: " . $db->lastErrorMsg());
+// }
 
 //létrehozza a táblát (ha nem létezik)
-$db->exec("CREATE TABLE IF NOT EXISTS urlShortener(id INTEGER PRIMARY KEY, url TEXT, shortUrl TEXT, addedBy TEXT, dateAdded TEXT)");
+
+// $mysqli->exec("CREATE TABLE IF NOT EXISTS urlShortener(
+//     id INTEGER PRIMARY KEY,
+//     url TEXT,
+//     shortUrl TEXT,
+//     addedBy TEXT,
+//     dateAdded TEXT
+// )");
 
 //random url generáló függvény
 function generateRandomString($length = 4) {
@@ -26,38 +36,46 @@ if(isset($_POST['url'])) {
     include "auth.php";
     $url = $_POST['url'];
 
-    //megnézi az adatbázisban hogy rövidítve lett-e már a megírt link
-    $result = $db->query("SELECT * FROM urlShortener WHERE url = '$url'");
+    //megnézi az adatbázisban hogy rövidítve lett-e már a hosszú link
+    $query = $mysqli->prepare("SELECT url FROM urlShortener WHERE url = ?");
+    $query->bind_param("s", $url);
+    $query->execute();
+
+    // $result = $db->query("SELECT * FROM urlShortener WHERE url = '$url'");
+    
     //ha igen, a már rövidített linket használja
-    if($row = $result->fetchArray()) {
+    if($row = $query->fetch()) {
         $shortUrl = $row['shortUrl'];
     }
     else{
         $shortUrl = generateRandomString();
-        $dateAdded = date('Y-m-d H:i:s');
+        // $dateAdded = NOW();
+        // $dateAdded = date('Y-m-d H:i:s');
 
         //megnézi létezik-e már az url az adatbázisban
-        $result = $db->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
+        $query = $mysqli->prepare("SELECT shortUrl FROM urlShortener WHERE shortUrl = ?");
+        $query->bind_param("s", $shortUrl);
+        $query->execute();
+        $query->bind_result($shortUrl);
         
-        while($result->fetchArray()) {
+        while($query->fetch()) {
             $shortUrl = generateRandomString();
-            $result = $db->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
+            $query = $mysqli->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
         }
 
         //jelenleg bejelentkezett felhasználó neve
         $addedBy = $_SESSION['username'];
 
         //beteszi a linket a táblába
-        $query = $db->prepare('INSERT INTO urlShortener (url, shortUrl, addedBy, dateAdded) VALUES (:url, :shortUrl, :addedBy, :dateAdded)');
-        $query->bindValue(':url', $url, SQLITE3_TEXT);
-        $query->bindValue(':shortUrl', $shortUrl, SQLITE3_TEXT);
-        $query->bindValue(':dateAdded', $dateAdded, SQLITE3_TEXT);
-        $query->bindValue(':addedBy', $addedBy, SQLITE3_TEXT);
+        $query = $mysqli->prepare("INSERT INTO urlShortener (url, shortUrl, addedBy, dateAdded) VALUES (?, ?, ?, NOW())");
+        $query->bind_param("sss", $url, $shortUrl, $addedBy);
         $query->execute();
+        $query->close();
     }
 
     echo "The link has been shortened successfully.<br>You can view it at <a href='https://vb2007.hu/ref/$shortUrl'>https://vb2007.hu/ref/$shortUrl</a>:" ;
 
+    $mysqli->close();
     exit;
 }
 
@@ -66,12 +84,30 @@ if(isset($_GET['shortUrl'])) {
     $shortUrl = $_GET['shortUrl'];
 
     //kiszedi az eredeti linket a táblából
-    $result = $db->query("SELECT url FROM urlShortener WHERE shortUrl = '$shortUrl'");
+    $query = $mysqli->prepare("SELECT url FROM urlShortener WHERE shortUrl = ?");
+    $query->bind_param("s", $shortUrl);
+    $query->execute();
+
+    if($query->errno) {
+        echo "Something went wrong while trying to query the url: " - $query->error;
+        exit;
+    }
+
+    $query->bind_result($url);
 
     //átirányít
-    if($result) {
-        $url = $result->fetchArray()['url'];
+    if($query->fetch()) {
+        // $url = $query->fetch()['url'];
+        $query->close();
+        $mysqli->close();
         header("Location: $url");
+        exit;
+    }
+    else{
+        echo "The shortened url couldn't be found in the database. Sowwy :(";
+        $query->close();
+        $mysqli->close();
+        exit;
     }
 }
 ?>
