@@ -54,7 +54,7 @@ $query->close();
 //jelszó hashelés insert előtt
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-//beteszi az adatot a users sqlite3 táblába
+//beteszi az adatot a users táblába
 $query = $mysqli->prepare("INSERT INTO users (username, password, email, gender, dateAdded) VALUES (?, ?, ?, ?, NOW())");
 
 $query->bind_param("ssss", $username, $hashedPassword, $email, $gender);
