@@ -1,12 +1,5 @@
 <?php
-//sql adatbázishoz csatlakozik
-
 include_once("_config.php");
-
-// $db = new SQLite3('../../data/data.db');
-// if (!$db) {
-//     die("Database connection failed: " . $db->lastErrorMsg());
-// }
 
 //létrehozza a táblát (ha nem létezik)
 
@@ -40,8 +33,6 @@ if(isset($_POST['url'])) {
     $query = $mysqli->prepare("SELECT url FROM urlShortener WHERE url = ?");
     $query->bind_param("s", $url);
     $query->execute();
-
-    // $result = $db->query("SELECT * FROM urlShortener WHERE url = '$url'");
     
     //ha igen, a már rövidített linket használja
     if($row = $query->fetch()) {
@@ -49,8 +40,6 @@ if(isset($_POST['url'])) {
     }
     else{
         $shortUrl = generateRandomString();
-        // $dateAdded = NOW();
-        // $dateAdded = date('Y-m-d H:i:s');
 
         //megnézi létezik-e már az url az adatbázisban
         $query = $mysqli->prepare("SELECT shortUrl FROM urlShortener WHERE shortUrl = ?");
@@ -97,7 +86,6 @@ if(isset($_GET['shortUrl'])) {
 
     //átirányít
     if($query->fetch()) {
-        // $url = $query->fetch()['url'];
         $query->close();
         $mysqli->close();
         header("Location: $url");

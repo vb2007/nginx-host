@@ -8,13 +8,8 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 $gender = $_POST["gender"];
 
-//sqlite adatbázishoz csatlakozik
+//sql adatbázishoz csatlakozik
 include_once("_config.php");
-
-// $db = new SQLite3('/var/www/html/data/data.db');
-// if (!$db) {
-//     die("Database connection failed.");
-// }
 
 //tábla létrehozása (ha még nem létezik)
 // $mysqli->execute("
@@ -41,16 +36,6 @@ if ($query->num_rows > 0) {
 
 $query->close();
 
-// $query = $db->prepare("SELECT * FROM users WHERE username = :username");
-// $query->bindParam(':username', $username);
-// $result = $query->execute();
-// $existingUser = $result->fetchArray(SQLITE3_ASSOC);
-
-// if ($existingUser) {
-//     echo "Username already exists. Please choose a different one.";
-//     exit;
-// }
-
 //jelszó hashelés insert előtt
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -65,18 +50,6 @@ if ($query->execute()) {
 else {
     echo "Error while registering user: " . $query->error;
 }
-
-
-// $query = $db->prepare("INSERT INTO users (username, password, email, gender, dateAdded) VALUES (:username, :password, :email, :gender, :dateAdded)");
-// $query->bindParam(':username', $username);
-// $query->bindParam(':password', $hashedPassword);
-// $query->bindParam(':email', $email);
-// $query->bindParam(':gender', $gender);
-// $query->bindValue(':dateAdded', date('Y-m-d H:i:s'));
-// $query->execute();
-
-// echo "Registration successful. You can now <a href='/login'>login</a>.";
-
 
 $query->close();
 $mysqli->close();

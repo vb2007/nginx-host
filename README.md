@@ -13,7 +13,7 @@ The site is currently running on a Debian linux server.
 
 Install the required packages with (php version can change over time. Ffmpeg is optional, because the compressing page currently isn't functional (the server couldn't even handle it lol)):
 
-```
+```shell
 sudo apt install nginx php php-fpm php8.2-mysqli mariadb
 ```
 
@@ -30,13 +30,13 @@ But I've only changed the max upload & post request size and enabled the mysql e
 The cdn's folder should get cloned automatically from the repo.
 If not:
 
-```
+```shell
 ln -s /media/vb2007/2TB-HDD/extended-cdn /var/www/html/extended-cdn
 ```
 
 if ***session_start()*** fails with permission issues:
 
-```
+```shell
 sudo chmod -R 777 /var/www
 sudo chmod -R 777 /var/lib/php/
 sudo chown www-data:www-data -R /var/lib/php/
@@ -44,7 +44,7 @@ sudo chown www-data:www-data -R /var/lib/php/
 
 If users cannot upload:
 
-```
+```shell
 sudo chown www-data:www-data -R /media/vb2007/2TB-HDD/extended-cdn/uploads
 ```
 
@@ -52,7 +52,7 @@ sudo chown www-data:www-data -R /media/vb2007/2TB-HDD/extended-cdn/uploads
 
 This section is not useful anymore. Back in the day, the site used sqlite3 for storing data. These commands gave php-fpm's user & group read & write access for the database.
 
-```
+```shell
 sudo chown www-data:www-data /var/www/html/data
 sudo chown www-data:www-data /var/www/html/data/data.db
 sudo chmod 755 /var/www/html/data/data.db
@@ -73,6 +73,12 @@ $databaseName = '<database name ("nginxdata" for me)>';
 
 //Connects to the database
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName); 
+
+//"Handle" errors
+if($mysqli->connect_errno != 0) {
+    echo "An error happened while trying to connect to the database: " . $mysqli->connect_error;
+    exit();
+}
 ?>
 ```
 
@@ -84,13 +90,13 @@ The ```html/sitemap.xml``` is only for search engine's indexing bots.
 
 Run the installation script with:
 
-```
+```shell
 sudo mysql_secure_installation
 ```
 
 Use the following command to open MariaDB as root:
 
-```
+```shell
 sudo mysql -u root -p
 ```
 
@@ -126,6 +132,6 @@ quit;
 
 Import data with:
 
-```
+```shell
 mysql -u root -p nginxdata < sql_dump.sql
 ```

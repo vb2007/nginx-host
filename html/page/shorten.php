@@ -48,28 +48,27 @@
             }
 
             // gets the table's record count
-            $db = new SQLite3('../data/data.db');
-            if (!$db) {
-                die("Database connection failed: " . $db->lastErrorMsg());
-            }
+            include_once("_script/_config.php");
 
-            // set total record/page
+            // set total records/page. if it isn't set, it'll be 10 by default
             $recordsPerPage = isset($_GET['recordsPerPage']) ? (int)$_GET['recordsPerPage'] : 10;
-            // if the page id isn't set, the id will be automatically 1 (first page)
+
+            // set the page id. if the page id isn't set, it'll be 1 (first page) by default
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+            // calculates the starting index
             $startIndex = ($page - 1) * $recordsPerPage;
 
-            $query = $db->prepare("SELECT id, url, shortUrl, addedBy, dateAdded FROM urlShortener LIMIT $recordsPerPage OFFSET $startIndex");
-            $result = $query->execute();
-
-            $totalRecordsQuery = $db->prepare("SELECT COUNT(*) as total FROM urlShortener");
-            $totalRecordsResult = $totalRecordsQuery->execute();
-            $totalRecords = (int)$totalRecordsResult->fetchArray(SQLITE3_ASSOC)['total'];
-            $totalPages = ceil($totalRecords / $recordsPerPage);
+            // gets the values according to the parameters, where LIMIT is $recordsPerPage and the OFFSET is $startIndex
+            $query = $mysqli->prepare("SELECT id, url, shortUrl, addedBy, dateAdded FROM urlShortener LIMIT ?, ?");
+            $query->bind_param('ss', $startIndex, $recordsPerPage);
+            $query->execute();
+            $query->bind_result($id, $url, $shortUrl, $addedBy, $dateAdded);
+            // $query->close();
         ?>
         <h2 class="text-center text-white mt-6 mb-3">Links shortened by others</h2>
-        <!-- <p class="text-center"><i>Displaying URLs is a bit broken at the moment, please be patient.</i></p>
-        <p class="text-center">The core (shortening and redirecting) still works, so don't worry.</p> -->
+        <p class="text-center"><i>Displaying URLs is a bit broken at the moment, please be patient.</i></p>
+        <p class="text-center">The core (shortening and redirecting) still works, so don't worry.</p>
         <div class="container">
             <table class="table table-dark">
                 <thead>
@@ -81,42 +80,46 @@
                     <th scope="col">Shortened by</th>
                 </thead>
                 <tbody>
-                    <?php while ($link = $result->fetchArray(SQLITE3_ASSOC)): ?>
+                    <?php while ($query->fetch()): ?>
                         <tr>
-                            <td><?php echo $link['id']; ?></td>
-                            <td><?php echo $link['url']; ?></td>
-                            <td><a href="https://vb2007.hu/ref/<?php echo $link['shortUrl']; ?>"><?php echo $link['shortUrl']; ?></a></td>
-                            <td><?php echo $link['dateAdded']; ?></td>
-                            <td><?php echo $link['addedBy']; ?></td>
+                            <td><?php echo $id; ?></td>
+                            <td><?php echo $url; ?></td>
+                            <td><a target="_blank" href="https://vb2007.hu/ref/<?php echo $shortUrl; ?>"><?php echo $shortUrl; ?></a></td>
+                            <td><?php echo $dateAdded; ?></td>
+                            <td><?php echo $addedBy; ?></td>
                         </tr>
-                    <?php endwhile; ?>
+                    <?php endwhile; $query->close(); ?>
                 </tbody>
             </table>
             <div class="row">
                 <div class="col-12 col-md-4 mb-1 mt-2 dropdown d-flex justify-content-start">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                         Records per page:
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item">10</a></li>
                         <li><a class="dropdown-item">25</a></li>
                         <li><a class="dropdown-item">50</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="col-12 col-md-4 pagination d-flex justify-content-center">
                     <ul class="pagination">
+                        <?php
+                            $totalRecordsQuery = $mysqli->prepare("SELECT COUNT(*) AS total FROM urlShortener");
+                            $totalRecordsQuery->execute();
+                            $totalRecordsResult = $totalRecordsQuery->get_result();
+                            $totalRecordsRow = $totalRecordsResult->fetch_row();
+                            $totalRecords = $totalRecordsRow[0];
+                            $totalPages = ceil($totalRecords / $recordsPerPage);
+                        ?>
                         <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                             <li class="page-item <?php echo ($i == $page ? 'active' : ''); ?>">
-                                <a class="page-link" href="?page=<?php echo $i; ?>&recordsPerPage=<?php echo $recordsPerPage; ?>"><?php echo $i; ?></a>
+                                <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
                             </li>
-                        <?php endfor;?>
+                        <?php endfor; $totalRecordsQuery->close(); ?>
                     </ul>
                 </div>
                 <div class="col-12 col-md-4 d-flex justify-content-end">
-                    <!-- <form class="d-flex justify-content-end mb-5" id="records-per-page-form">
-                        <input type="number" id="records-per-page" name="records-per-page" min="1" value="<?php echo $recordsPerPage; ?>">
-                        <button type="submit">Apply</button>
-                    </form> -->
                     <p>Showing page <?php echo $page; ?> of <?php echo $totalPages;?></p>
                 </div>
             </div>
