@@ -3,7 +3,7 @@ include_once("_config.php");
 
 //létrehozza a táblát (ha nem létezik)
 
-// $mysqli->exec("CREATE TABLE IF NOT EXISTS urlShortener(
+// $mysqli->execute("CREATE TABLE IF NOT EXISTS urlShortener(
 //     id INTEGER PRIMARY KEY,
 //     url TEXT,
 //     shortUrl TEXT,

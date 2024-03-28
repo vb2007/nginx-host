@@ -88,9 +88,13 @@ form{
     color: rgb(255, 255, 255);
 }
 
-/* Hosszú linkek elrejtése ... -al */
-/* td{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-} */
+/* hides long original links on mobile (bootstarp is ass) */
+.originalLink {
+    max-width: 225px;
+}
+
+@media (max-width: 576px) {
+    .originalLink, .originalLinkTitle {
+        display: none;
+    }
+}

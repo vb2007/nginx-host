@@ -67,40 +67,41 @@
             // $query->close();
         ?>
         <h2 class="text-center text-white mt-6 mb-3">Links shortened by others</h2>
-        <p class="text-center"><i>Displaying URLs is a bit broken at the moment, please be patient.</i></p>
-        <p class="text-center">The core (shortening and redirecting) still works, so don't worry.</p>
-        <div class="container">
-            <table class="table table-dark">
+        <!-- <p class="text-center"><i>Displaying URLs is a bit broken at the moment, please be patient.</i></p>
+        <p class="text-center">The core (shortening and redirecting) still works, so don't worry.</p> -->
+        <div class="container table-responsive d-block">
+            <table class="table table-dark caption-top">
+                <caption class="text-white">Shortened links</caption>
                 <thead>
-                    <th scope="col">Id</th>
-                    <th scope="col">Original link</th>
-                    <th scope="col">Shortened link</th>
-                    <!-- <th scope="col">View count</th> -->
-                    <th scope="col">Shortened at</th>
-                    <th scope="col">Shortened by</th>
+                    <th class="idTitle" scope="col">Id</th>
+                    <th class="originalLinkTitle" scope="col">Original link</th>
+                    <th class="shortenedLinkTitle" scope="col">Shortened link</th>
+                    <!-- <th class="viewCountTitle" scope="col">View count</th> -->
+                    <th class="shortenedAtTitle" scope="col">Shortened at</th>
+                    <th class="shortenedByTitle" scope="col">Shortened by</th>
                 </thead>
                 <tbody>
                     <?php while ($query->fetch()): ?>
                         <tr>
-                            <td><?php echo $id; ?></td>
-                            <td><?php echo $url; ?></td>
-                            <td><a target="_blank" href="https://vb2007.hu/ref/<?php echo $shortUrl; ?>"><?php echo $shortUrl; ?></a></td>
-                            <td><?php echo $dateAdded; ?></td>
-                            <td><?php echo $addedBy; ?></td>
+                            <td class="id"><?php echo $id; ?></td>
+                            <td class="originalLink text-truncate"><?php echo $url; ?></td>
+                            <td class="shortenedLink"><a target="_blank" href="/<?php echo $shortUrl; ?>"><?php echo $shortUrl; ?></a></td>
+                            <td class="shortenedAt"><?php echo $dateAdded; ?></td>
+                            <td class="shortenedBy"><?php echo $addedBy; ?></td>
                         </tr>
                     <?php endwhile; $query->close(); ?>
                 </tbody>
             </table>
             <div class="row">
                 <div class="col-12 col-md-4 mb-1 mt-2 dropdown d-flex justify-content-start">
-                    <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                        Records per page:
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Records per page: <?php echo $recordsPerPage; ?>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item">10</a></li>
-                        <li><a class="dropdown-item">25</a></li>
-                        <li><a class="dropdown-item">50</a></li>
-                    </ul> -->
+                        <li><a class="dropdown-item" href="?page=1&recordsPerPage=10">10</a></li>
+                        <li><a class="dropdown-item" href="?page=1&recordsPerPage=25">25</a></li>
+                        <li><a class="dropdown-item" href="?page=1&recordsPerPage=50">50</a></li>
+                    </ul>
                 </div>
                 <div class="col-12 col-md-4 pagination d-flex justify-content-center">
                     <ul class="pagination">
@@ -114,7 +115,7 @@
                         ?>
                         <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                             <li class="page-item <?php echo ($i == $page ? 'active' : ''); ?>">
-                                <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                <a class="page-link" href="?page=<?php echo $i; ?>&recordsPerPage=<?php echo $recordsPerPage; ?>"><?php echo $i; ?></a>
                             </li>
                         <?php endfor; $totalRecordsQuery->close(); ?>
                     </ul>
