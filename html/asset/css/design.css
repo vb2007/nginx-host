@@ -6,51 +6,6 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-#nav{
-    /*<nav> tag*/
-    background-color: rgba(74, 46, 100, 0.639);
-    height: 55px;
-    position: sticky;
-}
-
-#nav_container{
-    /*<nav>-on belüli <div>*/
-    display: flex;
-    justify-content: space-between;
-    height: 40px;
-    max-width: 1300px;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    padding-top: 0px;
-    padding-right: 50px;
-    padding-bottom: 0px;
-    padding-left: 50px;
-    z-index: 1;
-}
-
-#nav_list{
-    /*<nav> <div> tagon belüli <ul>*/
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.nav_link{
-    /*<nav> -> <div> -> <ul> -> <li> -> <a>*/
-    color: #a861ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    width: 125px;
-    height: 100%;
-    transition: all 0.5 ease;
-}
-
 h1, h2, h3, h4, h5, p, li{
     color: #fcfcfc;
 }
@@ -85,7 +40,7 @@ footer{
 }
 
 form{
-    color: rgb(255, 255, 255);
+    color: rgb(48, 48, 48);
 }
 
 /* hides long original links on mobile (bootstarp is ass) */

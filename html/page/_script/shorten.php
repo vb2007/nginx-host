@@ -2,14 +2,14 @@
 include_once("_config.php");
 
 //létrehozza a táblát (ha nem létezik)
-
-// $mysqli->execute("CREATE TABLE IF NOT EXISTS urlShortener(
-//     id INTEGER PRIMARY KEY,
-//     url TEXT,
-//     shortUrl TEXT,
-//     addedBy TEXT,
-//     dateAdded TEXT
-// )");
+$mysqli->query("CREATE TABLE IF NOT EXISTS `urlShortener`(
+    `id`    INTEGER,
+    `url`   TEXT,
+    `shortUrl`  TEXT,
+    `addedBy`   TEXT,
+    `dateAdded` DATETIME,
+    PRIMARY KEY(`id`)
+)");
 
 //random url generáló függvény
 function generateRandomString($length = 4) {

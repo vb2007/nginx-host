@@ -7,11 +7,11 @@ Visitors are under the www-data:www-data user group & name.
 
 ## Setting up
 
-The site is currently running on a Debian linux server.
+The site is currently running on a Debian Linux server.
 
 ### Installing packages
 
-Install the required packages with (php version can change over time. Ffmpeg is optional, because the compressing page currently isn't functional (the server couldn't even handle it lol)):
+Install the required packages with (php version can change over time. Ffmpeg is optional, because the compressing page currently isn't functional (my current server couldn't even handle compression lol)):
 
 ```shell
 sudo apt install nginx php php-fpm php8.2-mysqli mariadb
@@ -135,3 +135,5 @@ Import data with:
 ```shell
 mysql -u root -p nginxdata < sql_dump.sql
 ```
+
+*If you have nothing to import, the scripts will create the tables automatically on the first user data insert/call.*

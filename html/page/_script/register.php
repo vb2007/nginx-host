@@ -8,6 +8,7 @@ $password = $_POST["password"];
 $email = $_POST["email"];
 $gender = $_POST["gender"];
 
+//input validation
 $isInputValid = true;
 
 if (strlen($username) < 2 || strlen($username) > 10) {
@@ -29,12 +30,11 @@ if ($isInputValid == false) {
     exit;
 }
 
-//sql adatbázishoz csatlakozik
+//connects to database
 include_once("_config.php");
 
-//tábla létrehozása (ha még nem létezik)
-$mysqli->query("
-CREATE TABLE IF NOT EXISTS `users` (
+//creates table (if not exists)
+$mysqli->query("CREATE TABLE IF NOT EXISTS `users` (
     `id`    INTEGER,
     `username`  TEXT,
     `password`  TEXT,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     PRIMARY KEY(`id`)
 )");
 
-//megnézi benne van-e már a felhasználónév az adatbázisban
+//checks for existing username in the database
 $query = $mysqli->prepare("SELECT username FROM users WHERE username = ?");
 $query->bind_param("s", $username);
 $query->execute();
@@ -57,10 +57,10 @@ if ($query->num_rows > 0) {
 
 $query->close();
 
-//jelszó hashelés insert előtt
+//hashes password before inserting it into the database
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-//beteszi az adatot a users táblába
+//binds & insert data into database
 $query = $mysqli->prepare("INSERT INTO users (username, password, email, gender, dateAdded) VALUES (?, ?, ?, ?, NOW())");
 
 $query->bind_param("ssss", $username, $hashedPassword, $email, $gender);
