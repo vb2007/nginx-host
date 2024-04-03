@@ -10,16 +10,16 @@
                   <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'index.php') ? 'active' : ''; ?>" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'contact.php') ? 'active' : ''; ?>" href="/contact">Contact</a>
+                    <a id="nav-shorten" class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'shorten.php') ? 'active' : ''; ?>" href="/shorten">Shorten</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'download.php') ? 'active' : ''; ?>" href="/download">Download</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'shorten.php') ? 'active' : ''; ?>" href="/shorten">Shorten</a>
+                  <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'upload.php') ? 'active' : ''; ?>" href="/upload">Upload</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'upload.php') ? 'active' : ''; ?>" href="/upload">Upload</a>
+                  <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'contact.php') ? 'active' : ''; ?>" href="/contact">Contact</a>
                 </li>
             </ul>
             <div class="d-flex">
