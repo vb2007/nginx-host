@@ -32,7 +32,7 @@
         <div class="d-flex justify-content-center">
             <h3 id="register"></h3>
         </div>
-        <form name="register" method="post" action="page/_script/register.php" onsubmit="return validateForm()" enctype="multipart/form-data">
+        <form name="register" method="post" action="page/_script/register.php" enctype="multipart/form-data">
             <div class="row">
                     <div class="col-md-12">
                         <div class="d-flex justify-content-center flex-wrap">

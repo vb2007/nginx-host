@@ -6,7 +6,7 @@ form.addEventListener("input", () => {
   const usernameInput = document.forms["register"]["username"].value;
   const passwordInput = document.forms["register"]["password"].value;
   const emailInput = document.forms["register"]["email"].value;
-  const genderInput = document.forms["register"]["gender"].value;
+  // const genderInput = document.forms["register"]["gender"].value;
 
   const errors = {};
 
@@ -34,6 +34,12 @@ form.addEventListener("input", () => {
 });
 
 function registerUser() {
+  // TODO: pass valid input status into this function somehow
+  // if (Object.keys(errors).length > 0) {
+  //   alert("Please fix the errors before submitting.");
+  //   return;
+  // }
+
   var username = document.forms["register"]["username"].value;
   var password = document.forms["register"]["password"].value;
   var email = document.forms["register"]["email"].value;
