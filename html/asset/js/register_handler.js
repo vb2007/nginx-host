@@ -1,15 +1,13 @@
-const usernameInput = document.forms["register"]["username"].value;
-const passwordInput = document.forms["register"]["password"].value;
-const emailInput = document.forms["register"]["email"].value;
-const genderInput = document.forms["register"]["gender"].value;
-
 const form = document.forms["register"];
 // const inputsToValidate = ["username", "password", "email", "gender"];
 const submitButton = document.getElementById("submit");
 
-// var errors = [];
+form.addEventListener("input", () => {
+  const usernameInput = document.forms["register"]["username"].value;
+  const passwordInput = document.forms["register"]["password"].value;
+  const emailInput = document.forms["register"]["email"].value;
+  const genderInput = document.forms["register"]["gender"].value;
 
-form.addEventListener("keyup", () => {
   const errors = {};
 
   if(usernameInput.length < 2 || usernameInput.length > 10) {
@@ -18,6 +16,7 @@ form.addEventListener("keyup", () => {
 
   if(passwordInput.length < 6 || passwordInput.length > 25) {
     errors.password = "Password must be between 6 and 25 characters.";
+    console.log(passwordInput.value);
   }
 
   if(!/^\S+@\S+$/.test(emailInput)) {
