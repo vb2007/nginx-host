@@ -1,38 +1,40 @@
-// var username = document.forms["register"]["username"].value;
-// var password = document.forms["register"]["password"].value;
-// var email = document.forms["register"]["email"].value;
-// var gender = document.forms["register"]["gender"].value;
+const usernameInput = document.forms["register"]["username"].value;
+const passwordInput = document.forms["register"]["password"].value;
+const emailInput = document.forms["register"]["email"].value;
+const genderInput = document.forms["register"]["gender"].value;
 
-// const formData = {
-//   username: username,
-//   password: password,
-//   email: email,
-//   gender: gender
-// };
+const form = document.forms["register"];
+// const inputsToValidate = ["username", "password", "email", "gender"];
+const submitButton = document.getElementById("submit");
 
-function validateForm() {
-  var username = document.forms["register"]["username"].value;
-  var password = document.forms["register"]["password"].value;
-  var email = document.forms["register"]["email"].value;
-  var gender = document.forms["register"]["gender"].value;
+// var errors = [];
 
-  if (username.length < 2 || username.length > 10) {
-    alert("Username must be between 2 and 10 characters");
-    return false;
+form.addEventListener("keyup", () => {
+  const errors = {};
+
+  if(usernameInput.length < 2 || usernameInput.length > 10) {
+    errors.username = "Username must be between 2 and 10 characters.";
   }
 
-  if (password.length < 6 || password.length > 25) {
-    alert("Password must be between 6 and 25 characters.");
-    return false;
+  if(passwordInput.length < 6 || passwordInput.length > 25) {
+    errors.password = "Password must be between 6 and 25 characters.";
   }
-}
+
+  if(!/^\S+@\S+$/.test(emailInput)) {
+    errors.email = "Email must be a valid email address.";
+  }
+
+  submitButton.disabled = Object.keys(errors).length > 0;
+
+  document.getElementById("register").innerHTML = "";
+  for (let key in errors) {
+    const error = document.createElement("p");
+    error.textContent = errors[key];
+    document.getElementById("register").appendChild(error);
+  }
+});
 
 function registerUser() {
-  if (validateForm() == false) {
-    alert("Please fill out the form correctly.");
-    return false;
-  }
-
   var username = document.forms["register"]["username"].value;
   var password = document.forms["register"]["password"].value;
   var email = document.forms["register"]["email"].value;

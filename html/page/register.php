@@ -99,7 +99,7 @@
                 <div class="col-md-12">
                     <div class="d-flex justify-content-center flex-wrap">
                         <div id="form_group" class="form-group form-inline mb-2 mx-2">
-                            <button onclick="registerUser()" type="button" value="Register">Register</button>
+                            <button disabled onclick="registerUser()" type="button" class="btn btn-primary" id="submit" value="Register">Register</button>
                         </div>
                     </div>
                 </div>
