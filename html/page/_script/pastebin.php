@@ -3,56 +3,46 @@ include_once("_config.php");
 
 //létrehozza a táblát (ha nem létezik)
 $mysqli->query("CREATE TABLE IF NOT EXISTS `pastebin`(
-    `id`  INTEGER,
-    `content` TEXT,
-    `addedBy` TEXT,
-    `dateAdded`   DATETIME,
+    `id`  int(11) NOT NULL AUTO_INCREMENT,
+    `content` text DEFAULT NULL,
+    `addedBy` text DEFAULT NULL,
+    `dateAdded`   datetime DEFAULT NULL,
     PRIMARY KEY(`id`)
 )");
 
 //megnézi be van-e küldv a form (post)
 if(isset($_POST['content'])) {
     include "auth.php";
-//     $url = $_POST['url'];
+    $paste = $_POST["paste"];
 
-//     //megnézi az adatbázisban hogy rövidítve lett-e már a hosszú link
-//     $query = $mysqli->prepare("SELECT url FROM urlShortener WHERE url = ?");
-//     $query->bind_param("s", $url);
-//     $query->execute();
-    
-//     //ha igen, a már rövidített linket használja
-//     if($row = $query->fetch()) {
-//         $shortUrl = $row['shortUrl'];
-//     }
-//     else{
-//         $shortUrl = generateRandomString();
+        $shortUrl = generateRandomString();
 
-//         //megnézi létezik-e már az url az adatbázisban
-//         $query = $mysqli->prepare("SELECT shortUrl FROM urlShortener WHERE shortUrl = ?");
-//         $query->bind_param("s", $shortUrl);
-//         $query->execute();
-//         $query->bind_result($shortUrl);
+        //megnézi létezik-e már az url az adatbázisban
+        $query = $mysqli->prepare("SELECT shortUrl FROM urlShortener WHERE shortUrl = ?");
+        $query->bind_param("s", $shortUrl);
+        $query->execute();
+        $query->bind_result($shortUrl);
         
-//         while($query->fetch()) {
-//             $shortUrl = generateRandomString();
-//             $query = $mysqli->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
-//         }
+        while($query->fetch()) {
+            $shortUrl = generateRandomString();
+            $query = $mysqli->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
+        }
 
-//         //jelenleg bejelentkezett felhasználó neve
-//         $addedBy = $_SESSION['username'];
+        //jelenleg bejelentkezett felhasználó neve
+        $addedBy = $_SESSION['username'];
 
-//         //beteszi a linket a táblába
-//         $query = $mysqli->prepare("INSERT INTO urlShortener (url, shortUrl, addedBy, dateAdded) VALUES (?, ?, ?, NOW())");
-//         $query->bind_param("sss", $url, $shortUrl, $addedBy);
-//         $query->execute();
-//         $query->close();
-//     }
+        //beteszi a linket a táblába
+        $query = $mysqli->prepare("INSERT INTO urlShortener (url, shortUrl, addedBy, dateAdded) VALUES (?, ?, ?, NOW())");
+        $query->bind_param("sss", $url, $shortUrl, $addedBy);
+        $query->execute();
+        $query->close();
 
-//     echo "The link has been shortened successfully.<br>You can view it at <a href='https://vb2007.hu/ref/$shortUrl'>https://vb2007.hu/ref/$shortUrl</a>:" ;
 
-//     $mysqli->close();
-//     exit;
-// }
+    echo "The link has been shortened successfully.<br>You can view it at <a href='https://vb2007.hu/ref/$shortUrl'>https://vb2007.hu/ref/$shortUrl</a>:" ;
+
+    $mysqli->close();
+    exit;
+}
 
 // //megnézi kérték-e a linket (get)
 // if(isset($_GET['shortUrl'])) {
