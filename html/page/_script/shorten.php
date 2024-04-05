@@ -63,7 +63,7 @@ if(isset($_POST['url'])) {
         $query->close();
     }
 
-    echo "The link has been shortened successfully.<br>You can view it at <a href='https://vb2007.hu/ref/$shortUrl'>https://vb2007.hu/ref/$shortUrl</a>:" ;
+    echo "The link has been shortened successfully.<br>You can view it at <a href='/ref/$shortUrl'>https://vb2007.hu/ref/$shortUrl</a>:" ;
 
     $mysqli->close();
     exit;

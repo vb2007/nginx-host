@@ -7,9 +7,9 @@ function uploadPaste() {
       }
     };
   
-    var url = document.getElementById("paste").value;
+    var paste = document.getElementById("paste").value;
   
     xhttp.open("POST", "/page/_script/pastebin.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("url=" + encodeURIComponent(url));
+    xhttp.send("paste=" + encodeURIComponent(paste));
   }

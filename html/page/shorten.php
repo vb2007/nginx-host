@@ -38,7 +38,7 @@
             </div>
         </form>
         <div class="container my-3">
-            <p class="text-center" id="shorturl"></p>
+            <p class="text-center" id="response"></p>
         </div>
         <!--Display shortened links from the databse-->
         <?php

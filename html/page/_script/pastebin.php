@@ -4,41 +4,29 @@ include_once("_config.php");
 //létrehozza a táblát (ha nem létezik)
 $mysqli->query("CREATE TABLE IF NOT EXISTS `pastebin`(
     `id`  int(11) NOT NULL AUTO_INCREMENT,
-    `content` text DEFAULT NULL,
+    `paste` text DEFAULT NULL,
     `addedBy` text DEFAULT NULL,
     `dateAdded`   datetime DEFAULT NULL,
     PRIMARY KEY(`id`)
 )");
 
 //megnézi be van-e küldv a form (post)
-if(isset($_POST['content'])) {
+if(isset($_POST['paste'])) {
     include "auth.php";
+
     $paste = $_POST["paste"];
 
-        $shortUrl = generateRandomString();
+    //jelenleg bejelentkezett felhasználó neve
+    $addedBy = $_SESSION['username'];
 
-        //megnézi létezik-e már az url az adatbázisban
-        $query = $mysqli->prepare("SELECT shortUrl FROM urlShortener WHERE shortUrl = ?");
-        $query->bind_param("s", $shortUrl);
-        $query->execute();
-        $query->bind_result($shortUrl);
-        
-        while($query->fetch()) {
-            $shortUrl = generateRandomString();
-            $query = $mysqli->query("SELECT * FROM urlShortener WHERE shortUrl = '$shortUrl'");
-        }
-
-        //jelenleg bejelentkezett felhasználó neve
-        $addedBy = $_SESSION['username'];
-
-        //beteszi a linket a táblába
-        $query = $mysqli->prepare("INSERT INTO urlShortener (url, shortUrl, addedBy, dateAdded) VALUES (?, ?, ?, NOW())");
-        $query->bind_param("sss", $url, $shortUrl, $addedBy);
-        $query->execute();
-        $query->close();
+    //beteszi a linket a táblába
+    $query = $mysqli->prepare("INSERT INTO pastebin (paste, addedBy, dateAdded) VALUES (?, ?, NOW())");
+    $query->bind_param("ss", $paste, $addedBy);
+    $query->execute();
+    $query->close();
 
 
-    echo "The link has been shortened successfully.<br>You can view it at <a href='https://vb2007.hu/ref/$shortUrl'>https://vb2007.hu/ref/$shortUrl</a>:" ;
+    echo "Your paste has been uploaded. <br> You can view it at <a href='/paste/'>https://vb2007.hu/paste/</a>:" ;
 
     $mysqli->close();
     exit;
