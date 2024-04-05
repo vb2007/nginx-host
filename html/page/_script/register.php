@@ -35,13 +35,14 @@ include_once("_config.php");
 
 //creates table (if not exists)
 $mysqli->query("CREATE TABLE IF NOT EXISTS `users` (
-    `id`    INTEGER,
-    `username`  TEXT,
-    `password`  TEXT,
-    `email` TEXT,
-    `gender`    TEXT,
-    `dateAdded` DATETIME,
-    PRIMARY KEY(`id`)
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `username` text DEFAULT NULL,
+    `password` text DEFAULT NULL,
+    `email` text DEFAULT NULL,
+    `gender` text DEFAULT NULL,
+    `isAdmin` tinyint(1) DEFAULT NULL,
+    `dateAdded` datetime DEFAULT NULL,
+    PRIMARY KEY (`id`)
 )");
 
 //checks for existing username in the database

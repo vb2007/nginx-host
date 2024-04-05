@@ -3,11 +3,12 @@ include_once("_config.php");
 
 //létrehozza a táblát (ha nem létezik)
 $mysqli->query("CREATE TABLE IF NOT EXISTS `urlShortener`(
-    `id`    INTEGER,
-    `url`   TEXT,
-    `shortUrl`  TEXT,
-    `addedBy`   TEXT,
-    `dateAdded` DATETIME,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `url` text DEFAULT NULL,
+    `shortUrl` text DEFAULT NULL,
+    `addedBy` text DEFAULT NULL,
+    `dateAdded` datetime DEFAULT NULL,
+    `votes` int(11) NOT NULL DEFAULT 0,
     PRIMARY KEY(`id`)
 )");
 
