@@ -31,10 +31,15 @@
             <?php include '_script/auth.php';?>
             <h2 class="text-center mt-2 mb-4">Enter your paste below</h2>
             <h3 class="text-center text-danger mb-2">This feature isn't functional currently.<br>Please wait a few days.<br>But you can see the preview :)</h3>
+            <!-- Displays response from the backend (using pastebin_handler.js) -->
             <div class="container my-3">
                 <p class="text-center" id="response"></p>
             </div>
             <form class="upload-form" id="pastebin-form" action="/page/_script/pastebin.php" method="post" enctype="multipart/form-data">
+                <div class="justify-content-center mb-2 ms-5 me-5">
+                    <label class="form-label" for="paste-title"></label>
+                    <input class="form-control" type="text" name="paste-title" id="paste-title" placeholder="Paste title" required>
+                </div>
                 <div class="justify-content-center mb-2 ms-5 me-5">
                     <textarea name="paste" id="paste" cols="130" rows="20" placeholder="Enter your paste here." autofocus required></textarea>
                 </div>
