@@ -103,7 +103,7 @@ sudo mysql -u root -p
 Create the **nginxdata** database with:
 
 ```sql
-CREATE TABLE nginxdata;
+CREATE DATABASE nginxdata;
 ```
 
 Then make a new user with the following command:
