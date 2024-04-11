@@ -42,7 +42,6 @@
             $username = $_SESSION['username'];
             
             //felhasználói adatok kiszedése a táblából
-           
             $queryUser = $mysqli->prepare("SELECT id, username, email, gender, dateAdded, password FROM users WHERE username = ?");
             $queryUser->bind_param('s', $username);
             $queryUser->execute();
@@ -55,6 +54,16 @@
             $queryLinks->bind_param('s', $username);
             $queryLinks->execute();
             $queryLinks->bind_result($id, $url, $shortUrl, $dateAdded);
+
+            function deleteLink($id){
+                include_once("_script/_config.php");
+                global $id;
+
+                $queryDelete = $mysqli->prepare("DELETE from urlShortener WHERE id = ?");
+                $queryDelete->bind_param('s', $id);
+                $queryDelete->execute();
+                
+            }
         ?>
         <div class="container">
             <h2 class="text-center mt-4">User information</h2>
@@ -76,6 +85,7 @@
                     <th scope="col">Shortened link</th>
                     <!-- <th scope="col">View count</th> -->
                     <th scope="col">Shortened at</th>
+                    <th scope="col">Delete</th>
                     <!-- <th scope="col">Shortened by</th> -->
                 </thead>
                 <tbody>
@@ -86,6 +96,7 @@
                             <td><?php echo $url; ?></td>
                             <td><a href="https://vb2007.hu/ref/<?php echo $shortUrl; ?>"><?php echo $shortUrl; ?></a></td>
                             <td><?php echo $dateAdded; ?></td>
+                            <td><p><a class="text-danger" onClick="deleteLink(<?php echo $id ?>)">Delete</a></p></td>
                         </tr>
                     <?php } $queryLinks->close(); ?>
                 </tbody>

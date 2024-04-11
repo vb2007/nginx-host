@@ -10,8 +10,8 @@ form.addEventListener("input", () => {
 
   const errors = {};
 
-  if(usernameInput.length < 2 || usernameInput.length > 10) {
-    errors.username = "Username must be between 2 and 10 characters.";
+  if(usernameInput.length < 2 || usernameInput.length > 18) {
+    errors.username = "Username must be between 2 and 18 characters.";
   }
 
   if(passwordInput.length < 6 || passwordInput.length > 25) {

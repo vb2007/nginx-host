@@ -11,8 +11,8 @@ $gender = $_POST["gender"];
 //input validation
 $isInputValid = true;
 
-if (strlen($username) < 2 || strlen($username) > 10) {
-    echo "Username must be between 2 and 10 characters.";
+if (strlen($username) < 2 || strlen($username) > 18) {
+    echo "Username must be between 2 and 18 characters.";
     $isInputValid = false;
 }
 

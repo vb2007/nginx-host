@@ -88,6 +88,8 @@ The ```html/sitemap.xml``` is only for search engine's indexing bots.
 
 ## Setting up MariaDB
 
+### Set up the database, tables, and privileges
+
 Run the installation script with:
 
 ```shell
@@ -112,10 +114,10 @@ Then make a new user with the following command:
 CREATE USER '<username>'@'localhost' IDENTIFIED BY '<password>';
 ```
 
-Then grant access to the user on the **nginxdata** databse:
+Then grant access to the user on the **nginxdata** databse (includes remote hosts, more about that later):
 
 ```sql
-GRANT ALL PRIVILEGES ON nginxdata.* TO '<username>'@'localhost';
+GRANT ALL ON nginxdata.* to '<username>'@'%' IDENTIFIED BY '<password>' WITH GRANT OPTION;
 ```
 
 Flush privileges:
@@ -129,6 +131,20 @@ Then exit with:
 ```sql
 quit;
 ```
+
+### Set up remote access
+
+Open the following config file:
+
+```shell
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+Then enable remote access with modifying the ```bind-address = 127.0.0.1``` value to ```bind-address = 0.0.0.0```.
+
+---
+
+### Importing data
 
 Import data with:
 

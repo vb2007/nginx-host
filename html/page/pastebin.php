@@ -30,7 +30,7 @@
         <div class="container">
             <?php include '_script/auth.php';?>
             <h2 class="text-center mt-2 mb-4">Enter your paste below</h2>
-            <h3 class="text-center text-danger mb-2">This feature isn't functional currently.<br>Please wait a few days.<br>But you can see the preview :)</h3>
+            <h3 class="text-center text-danger mb-2">This feature isn't functional currently.<br>Please wait a few days.<br>Your paste <u>WILL</u> be saved to a database.</h3>
             <!-- Displays response from the backend (using pastebin_handler.js) -->
             <div class="container my-3">
                 <p class="text-center" id="response"></p>

@@ -85,7 +85,7 @@
                         <tr>
                             <td class="id"><?php echo $id; ?></td>
                             <td class="originalLink text-truncate"><?php echo $url; ?></td>
-                            <td class="shortenedLink"><a target="_blank" href="/<?php echo $shortUrl; ?>"><?php echo $shortUrl; ?></a></td>
+                            <td class="shortenedLink"><a target="_blank" href="/ref/<?php echo $shortUrl; ?>"><?php echo $shortUrl; ?></a></td>
                             <td class="shortenedAt"><?php echo $dateAdded; ?></td>
                             <td class="shortenedBy"><?php echo $addedBy; ?></td>
                         </tr>
