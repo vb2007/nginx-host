@@ -30,41 +30,7 @@
     </header>
     <!--Main content-->
     <main class="container">
-        <?php include '_script/auth.php'; ?>
-        <?php
-            if ($_SERVER["REQUEST_METHOD"] !== "GET") {
-                exit("GET request method required.");
-            }
-
-            include_once("_script/_config.php");
-
-            //username állítása sessionből
-            $username = $_SESSION['username'];
-            
-            //felhasználói adatok kiszedése a táblából
-            $queryUser = $mysqli->prepare("SELECT id, username, email, gender, dateAdded, password FROM users WHERE username = ?");
-            $queryUser->bind_param('s', $username);
-            $queryUser->execute();
-            $userdata = $queryUser->get_result()->fetch_assoc();
-            $queryUser->close();
-            
-            //felhasználó által rövidített linkek kiszedése a táblából
-
-            $queryLinks = $mysqli->prepare("SELECT id, url, shortUrl, dateAdded FROM urlShortener WHERE addedBy = ?");
-            $queryLinks->bind_param('s', $username);
-            $queryLinks->execute();
-            $queryLinks->bind_result($id, $url, $shortUrl, $dateAdded);
-
-            function deleteLink($id){
-                include_once("_script/_config.php");
-                global $id;
-
-                $queryDelete = $mysqli->prepare("DELETE from urlShortener WHERE id = ?");
-                $queryDelete->bind_param('s', $id);
-                $queryDelete->execute();
-                
-            }
-        ?>
+        <?php include '_script/profile.php'; ?>
         <div class="container">
             <h2 class="text-center mt-4">User information</h2>
             <hr>
@@ -106,6 +72,7 @@
     <!--Footer-->
     <?php include '_common/footer.php'; ?>
     <!--Script import-->
+    <script src="./asset/js/user_link_delete.js"></script>
     <script src="./asset/js/rainbow_shit.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
