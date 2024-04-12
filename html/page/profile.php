@@ -62,7 +62,7 @@
                             <td><?php echo $url; ?></td>
                             <td><a href="https://vb2007.hu/ref/<?php echo $shortUrl; ?>"><?php echo $shortUrl; ?></a></td>
                             <td><?php echo $dateAdded; ?></td>
-                            <td><p><a class="text-danger" onClick="deleteLink(<?php echo $id ?>)">Delete</a></p></td>
+                            <td><p><a class="text-danger" onClick="deleteLink(<?php echo $id; ?>)">Delete</a></p></td>
                         </tr>
                     <?php } $queryLinks->close(); ?>
                 </tbody>
