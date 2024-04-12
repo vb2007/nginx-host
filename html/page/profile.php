@@ -64,7 +64,7 @@
                             <td><?php echo $dateAdded; ?></td>
                             <td><p><a class="text-danger" onClick="deleteLink(<?php echo $id; ?>)">Delete</a></p></td>
                         </tr>
-                    <?php } $queryLinks->close(); ?>
+                    <?php } $queryLinks->close(); ?> 
                 </tbody>
             </table>
         </div>

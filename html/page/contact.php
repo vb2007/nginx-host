@@ -28,7 +28,7 @@
     <!--Main content-->
     <main>
         <div class="container">
-            <h3 class="text-center mt-4"><a target="_blank" href="mailto:vb2007.2023@gmail.com">write an email</a> or something if you want to</h3>
+            <h3 class="text-center mt-4"><a target="_blank" href="mailto:admin@vb2007.hu">write an email to admin@vb2007.hu</a> or something if you want to</h3>
             <h3 class="text-center my-4">or drop a message on <a target="_blank" href="https://t.me/VB2007_res">telegram</a> (i'll respond there faster)</h3>
         </div>
     </main>

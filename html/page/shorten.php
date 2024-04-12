@@ -47,7 +47,6 @@
                 exit("GET request method required.");
             }
 
-            // gets the table's record count
             include_once("_script/_config.php");
 
             // set total records/page. if it isn't set, it'll be 10 by default
@@ -106,6 +105,7 @@
                 <div class="col-12 col-md-4 pagination d-flex justify-content-center">
                     <ul class="pagination">
                         <?php
+                            //get table's total record count
                             $totalRecordsQuery = $mysqli->prepare("SELECT COUNT(*) AS total FROM urlShortener");
                             $totalRecordsQuery->execute();
                             $totalRecordsResult = $totalRecordsQuery->get_result();
