@@ -28,7 +28,7 @@ if(isset($_POST['paste']) && isset($_POST['pasteTitle'])) {
     $query->close();
 
     $pasteId = mysqli_insert_id($mysqli);
-    echo "Your paste has been uploaded. <br> You can view it at <a href='/paste/$pasteId'>https://vb2007.hu/paste?id=$pasteId</a>:" ;
+    echo "Your paste has been uploaded. <br> You can view it at <a href='/paste?id=$pasteId'>https://vb2007.hu/paste?id=$pasteId</a>:" ;
 
     $mysqli->close();
     exit;

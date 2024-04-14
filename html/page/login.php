@@ -40,6 +40,13 @@
                 echo "<h3 class='text-center my-3'>Maybe try <a href='page/_script/logout.php'>logging out</a> first.</h3>";
                 exit;
             }
+
+            $loginState = $_GET["loginState"];
+
+            if ($loginState === "success") {
+                echo "<h2 class='text-center mt-4'>Login successful.</h2>";
+            }
+
         ?>
         <h1></h1>
         <form id="loginForm" action="/page/_script/login.php" method="post">
