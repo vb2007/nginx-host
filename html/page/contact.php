@@ -28,8 +28,8 @@
     <!--Main content-->
     <main>
         <div class="container">
-            <h3 class="text-center mt-4"><a target="_blank" href="mailto:admin@vb2007.hu">write an email to admin@vb2007.hu</a> or something if you want to</h3>
-            <h3 class="text-center my-4">or drop a message on <a target="_blank" href="https://t.me/VB2007_res">telegram</a> (i'll respond there faster)</h3>
+            <h3 class="text-start mt-4">You can always write an e-mail to <a target="_newpage" href="mailto:admin@vb2007.hu">admin@vb2007.hu</a>.</h3>
+            <h3 class="text-start my-4">Or drop a message on <a target="_blank" href="https://t.me/VB2007_res">Telegram</a> (I'll respond there faster).</h3>
         </div>
     </main>
     <!--Footer-->

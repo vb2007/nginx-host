@@ -1,16 +1,23 @@
-const textarea = document.getElementById("paste");
-const lineNumbers = document.querySelector(".line-numbering .line-number");
+const textArea = document.getElementById("paste");
+const lineNumbersContainer = textArea.parentElement;
 
 function updateLineNumbers() {
-    const lines = textarea.value.split("\n");
-    let lineNumberContent = "";
+  const lines = textArea.value.split("\n");
+//   const contentLines = lines.filter(line => line.trim() !== "");
 
-    for (let i = 1; i <= lines.lenght; i++) {
-        lineNumberContent += "${i}\n";
+  lineNumbersContainer.querySelectorAll("div").forEach((line, index) => {
+    if (index < lines.length) {
+      line.textContent = index + 1;
+      console.log("hi");
     }
-    lineNumbers.textContent = lineNumberContent;
+    else {
+      line.style.display = "none";
+    }
+  });
+
+  console.log(textArea.parentElement);
 }
 
-updateLineNumbers();
+textArea.addEventListener("input", updateLineNumbers);
 
-textarea.addEventListener("input", updateLineNumbers);
+updateLineNumbers();

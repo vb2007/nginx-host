@@ -41,8 +41,8 @@
                     <label class="form-label" for="paste-title"></label>
                     <input class="form-control" type="text" name="paste-title" id="paste-title" placeholder="Paste title" required>
                 </div>
-                <div class="line-numbering justify-content-center mb-2 ms-5 me-5">
-                    <div class="line-number"></div>
+                <div class="mb-2 ms-5 me-5">
+                    <div class="line-numbered"></div>
                     <textarea id="paste" class="pastebin-text" name="paste" placeholder="Enter your paste here." autofocus required></textarea>
                 </div>
                 <div class="justify-content-center mb-2 ms-5 me-5">
