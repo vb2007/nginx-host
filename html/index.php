@@ -28,7 +28,7 @@
     <!--Main content-->
     <main>
         <div class="container">
-            <h1 class="text-center">Welcome home!</h1>
+            <h1 class="my-2 text-center">Welcome home!</h1>
             <div>
                 <p>Even I don't know what's the purpose of this site.</p>
                 <p>But hey, take a look around yourself, you might find something interesting here!</p>
@@ -37,7 +37,7 @@
                 <thead>
                     <tr>
                         <th class="col-4">
-                            <p><a href="/download">Download</a></p>
+                            <p><a href="/download">Paste</a></p>
                         </th>
                         <th class="col-4">
                             <p><a href="/shorten">Shorten</a></p>
@@ -50,17 +50,18 @@
                 <tbody>
                     <tr>
                         <td class="col-4">
-                            <p>cracked games & software, and everything else (no need to thank me for sharing my torrents).</p>
+                            <p>long text(s), that you would like to view later on.</p>
                         </td>
                         <td class="col-4">
-                            <p>a random (or not random) link that you can access later.</p>
+                            <p>a random (or not) link that the site shortens. Site redirects under secodns.</p>
                         </td>
                         <td class="col-4">
-                            <p>some thing you can download later (I might just delete them)</p>
+                            <p><b>images</b> that you can access later.</p>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <h4 class="mt-4 text-center">Whatever you choose to do, you can rely on the stie.<br>Your account password is encrypted, and you can access any of your data from a fast database, <u>without limitations</u>.</h3>
         </div>
     </main>
     <!--Footer-->

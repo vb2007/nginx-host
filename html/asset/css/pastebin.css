@@ -24,7 +24,7 @@
     height: 150px;
     padding-left: 30px; 
     box-sizing: border-box;
-    /* border: 3px solid rgb(59, 49, 67); */
+    border: 3px solid rgb(59, 49, 67);
     border-radius: 4px;
     font-size: 16px;
     background-color: rgb(58, 58, 58);
