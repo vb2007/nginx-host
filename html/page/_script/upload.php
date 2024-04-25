@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 include "auth.php";
 
@@ -9,9 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
   exit('POST request method required.');
 }
 
-if (empty($_FILES)) {
-  exit('$_FILES is empty - is file_uploads set to "Off" in php.ini?');
-}
+// if (empty($_FILES)) {
+//   exit('$_FILES is empty - is file_uploads set to "Off" in php.ini?');
+// }
 
 if ($_FILES["fileToUpload"]["size"] > 50000000) {
   echo json_encode(["success" => false, "error" => "File is too big for upload. The limit is 50MB."]);

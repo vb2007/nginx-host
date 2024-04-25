@@ -6,6 +6,8 @@ document.querySelector('.upload-form').addEventListener('submit', function (e) {
   var progressBar = document.getElementById('progress');
   var progressBarFill = document.getElementById('bar');
   var progressBarPercent = document.getElementById('percent');
+
+  var messageContainer = document.getElementById("succesful-upload");
   
   var xhr = new XMLHttpRequest();
   
@@ -21,34 +23,37 @@ document.querySelector('.upload-form').addEventListener('submit', function (e) {
   };
 
   xhr.onload = function() {
+    var response = JSON.parse(xhr.responseText);
+    // console.log(xhr.responseText);
+    var fileLocation = response.file_location;
+    var uploadError = response.error;
+
     if (xhr.status === 200) {
       //sikeres feltöltés, válasz kezelése
-      console.log(xhr.responseText);
-      var response = JSON.parse(xhr.responseText);
-
+      
       if (response.success) {
-        var fileLocation = response.file_location;
-
         //elérési út kiírása a felhasználónak
-        var messageContainer = document.getElementById("succesful-upload");
         messageContainer.style.display = "block";
         messageContainer.innerHTML = "The file has been uploaded. You can view or download it <a target='_blank' href='" + fileLocation + "'>here</a>.";
 
         //document.body.appendChild(messageContainer);
-      } else {
-        //ha nem megy hát nem megy
+      }
+      else {
         console.error(response.error);
       }
-      console.log(xhr.responseText);
     }
     else {
       //ha nem megy hát nem megy
+      progressBar.style.display = 'none';
+
+      messageContainer.style.display = "block";
+      messageContainer.innerHTML = "An error occurred while uploading the file: " + uploadError;
+
       console.error("Upload failed.");
     }
   };
 
   xhr.onerror = function () {
-    //a te hállózati problémád nem az én bajom basszam a szád
     console.error("Network error during upload.");
   };
 
