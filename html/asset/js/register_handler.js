@@ -13,7 +13,7 @@ form.addEventListener("input", () => {
   if(usernameInput.length < 2 || usernameInput.length > 18) {
     errors.username = "Username must be between 2 and 18 characters.";
   }
-
+ 
   if(passwordInput.length < 6 || passwordInput.length > 25) {
     errors.password = "Password must be between 6 and 25 characters.";
     console.log(passwordInput.value);

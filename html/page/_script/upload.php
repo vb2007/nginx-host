@@ -47,12 +47,12 @@ if ($_FILES["fileToUpload"]["error"] !== UPLOAD_ERR_OK) {
   }
 }
 
-$target_dir = "/media/vb2007/2TB-HDD/extended-cdn/uploads/";
+$target_dir = "/media/vb2007/16TB-HDD/cdn/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $file_name = htmlspecialchars(basename($_FILES["fileToUpload"]["name"]));
 
 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-  $file_location = "/extended-cdn/uploads/" . $file_name;
+  $file_location = "/cdn/uploads/" . $file_name;
 
   // Respond with the file location in JSON format
   echo json_encode(['success' => true, 'file_location' => $file_location]);
