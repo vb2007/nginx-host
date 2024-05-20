@@ -13,6 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!--Local import-->
     <link rel="stylesheet" href="../asset/css/design.css">
+    <link rel="stylesheet" href="../asset/css/paste.css">
     <!--Title-->
     <title>View paste</title>
 </head>
@@ -31,16 +32,19 @@
             <?php include '_script/paste.php'; ?>
             <h2 class="text-center mt-2 mb-4">View paste</h2>
             <div>
-                <button class="btn btn-primary">View raw</button>
+                <!-- <button class="btn btn-primary">View raw</button> -->
                 <h3>Metadata</h3>
                 <ul>
-                    <li><p>Paste title: <?php echo $pasteTitle; ?></p></li>
-                    <li><p>Paste Id: <?php echo $id; ?></p></li>
-                    <li><p>Added by: <?php echo $addedBy; ?></p></li>
-                    <li><p>Added at: <?php echo $dateAdded; ?></p></li>
+                    <li>Paste title: <?php echo $pasteTitle; ?></li>
+                    <li>Paste Id: <?php echo $id; ?></li>
+                    <li>Added by: <?php echo $addedBy; ?></li>
+                    <li>Added at: <?php echo $dateAdded; ?></li>
                 </ul>
                 <h3>Paste's content: </h3>
-                <p><?php echo $paste; ?></p>
+                <div class="line-numbers-container">
+                    <div class="line-numbers"></div>
+                    <pre id="paste-text"><?php echo $paste; ?></pre>
+                </div>
             </div>
         </div>
     </main>
@@ -48,6 +52,7 @@
     <?php include '_common/footer.php'; ?>
     <!--Script import-->
     <script src="./asset/js/rainbow_shit.js"></script>
+    <script src="./asset/js/paste_dynamic_line_displayer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
