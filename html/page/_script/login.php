@@ -32,8 +32,6 @@ $query->bind_param('s', $username);
 $query->execute();
 $user = $query->get_result()->fetch_assoc();
 
-echo $user;
-
 if ($user) {
     if (password_verify($password, $user['password'])) {
         $_SESSION['loggedin'] = true;
@@ -49,7 +47,7 @@ if ($user) {
     }
 }
 else {
-    echo $user + "There is no such username in the database. Please <a href='/register'>register</a> to the site first. If you have an account with that username, and you get this message, please <a href='/contact'>contact the site administrator</a>.";
+    echo "There is no such username in the database. Please <a href='/register'>register</a> to the site first. If you have an account with that username, and you get this message, please <a href='/contact'>contact the site administrator</a>.";
     // header("Location: /invalid-login");
 }
 
