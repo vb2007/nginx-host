@@ -7,7 +7,7 @@
     <meta name="title" content="vb2007.hu">
     <meta name="description" content="Just another general purpose site.">
     <meta name="author" content="VB2007">
-    <meta name="keywords" content="vb2007, free, download, upload, shorten 2022, 2023, 2024">
+    <meta name="keywords" content="vb2007, free, shorten, pastebin, paste, 2022, 2023, 2024">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--3rd party import-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">

@@ -4,7 +4,7 @@
     <!--Settings-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="title" content="vb2007.ddns.net">
+    <meta name="title" content="vb2007.hu">
     <meta name="description" content="Just another general purpose site.">
     <meta name="author" content="VB2007">
     <meta name="keywords" content="vb2007, ddns, net, free, download, upload, 2022, 2023, 2024">

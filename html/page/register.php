@@ -4,10 +4,10 @@
     <!--Settings-->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="title" content="vb2007.ddns.net">
+    <meta name="title" content="VB2007">
     <meta name="description" content="Just another general purpose site.">
     <meta name="author" content="VB2007">
-    <meta name="keywords" content="vb2007, ddns, net, free, download, upload, 2022, 2023, 2024">
+    <meta name="keywords" content="vb2007, hu, free, download, upload, shorten, 2022, 2023, 2024">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--3rd party import-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -71,17 +71,11 @@
                         <div class="d-flex justify-content-center flex-wrap">
                             <div id="form_group" class="form-group form-inline mb-2 mx-2">
                                 <label for="gender" class="mb-4">Gender:</label>
+                                <!-- I don't care about the others. -->
                                 <select name="gender" id="gender">
                                     <option value="0" selected disabled>--No gender selected--</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
-                                    <option value="Attack Helicopter">Attack Helicopter</option>
-                                    <option value="Attila">Attila</option>
-                                    <option value="F-15EX Eagle II">F-15EX Eagle II</option>
-                                    <option value="Donald Trump">Donald Trump</option>
-                                    <option value="Walmart Shopping Bag">Walmart Shopping Bag</option>
-                                    <option value="Sebestyén Balázs">Sebestyén Balázs</option>
-                                    <option value="Mayonaise">Mayonaise</option>
                                 </select>
                             </div>
                         </div>
