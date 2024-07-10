@@ -24,6 +24,9 @@
                 <li class="nav-item">
                   <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'contact.php') ? 'active' : ''; ?>" href="/contact">Contact</a>
                 </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link <?php echo (basename($_SERVER['SCRIPT_NAME']) == 'discordbot.php') ? 'active' : ''; ?>" href="/discordbot">Discordbot</a>
+                </li> -->
             </ul>
             <div class="d-flex">
                 <?php
