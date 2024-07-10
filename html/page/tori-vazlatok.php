@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="../asset/css/design.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.vb2007.hu/webstatic/css/design.css"> -->
     <link rel="stylesheet" href="../asset/css/tori-fradi.css">
     <title>Töri vázlatok</title>
 </head>
