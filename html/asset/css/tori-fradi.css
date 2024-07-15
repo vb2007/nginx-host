@@ -7,7 +7,7 @@ body{
 }
 
 #nav{
-    background-image: url("../media/fradi-logo.png");
+    background-image: url("https://cdn.vb2007.hu/webstatic/media/fradi-logo.png");
     background-repeat: repeat-x;
     background-size: contain;
     background-color: rgba(177, 255, 181, 0.819);
