@@ -30,7 +30,7 @@
         <div class="container">
             <h1 class="my-2 text-center">Hope you're all happy with your pride June.</h1>
             <div class="">
-                <img class="d-block mx-auto" style="border-radius: 5px; width: 30%;" src="./asset/media/flags.webp" alt="">
+                <img class="d-block mx-auto" style="border-radius: 5px; width: 30%;" src="https://cdn.vb2007.hu/webstatic/media/flags.webp" alt="">
             </div>
             <hr class="my-3">
             <div>
@@ -43,7 +43,7 @@
             </div>
             <hr class="my-2">
             <div>
-                <video class="d-block mx-auto" controls src="./asset/media/happy-pride-month.mov" title="Burning the pride flag." alt="Burning the pride flag."></video>
+                <video class="d-block mx-auto" controls src="https://cdn.vb2007.hu/webstatic/media/happy-pride-month.mov" title="Burning the pride flag." alt="Burning the pride flag."></video>
             </div>
             <hr class="my-2">
             <div>
@@ -56,8 +56,7 @@
     <!--Footer-->
     <?php include 'page/_common/footer.php'; ?>
     <!--Script import-->
-    <!-- <script src="asset/js/gipsy_detector.js"></script> -->
-    <script src="/asset/js/rainbow_shit.js"></script>
+    <script src="https://cdn.vb2007.hu/webstatic/js/rainbow_shit.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
