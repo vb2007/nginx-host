@@ -87,7 +87,7 @@
             if (array_key_exists($status, $codes)) {
                 echo $status . " - " . $codes[$status];
             }
-            else{
+            else {
                 echo "Error - Unknown error";
             }
             ?>
