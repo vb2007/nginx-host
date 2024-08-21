@@ -43,7 +43,8 @@
                     <div class="szoveg">2023 - 2024</div>
                     <ul id="vazlat-lista" class="list-unstyled">
                         <?php
-                            $noteDirectory = '../cdn/tori-vazlatok/2023_2024/';
+                            $noteDirectory = '/media/seagate/cdn/webstatic/tori-vazlatok/2023_2024/';
+                            
                             $notes = scandir($noteDirectory);
                             $notes = array_diff($notes, array('..', '.'));
                             natsort($notes);
@@ -66,7 +67,7 @@
                     <div class="szoveg">2022 - 2023</div>
                     <ul id="vazlat-lista" class="list-unstyled">
                         <?php
-                            $noteDirectory = '../cdn/tori-vazlatok/2022_2023/';
+                            $noteDirectory = '/media/seagate/cdn/webstatic/tori-vazlatok/2022_2023/';
                             $notes = scandir($noteDirectory);
                             $notes = array_diff($notes, array('..', '.'));
                             natsort($notes);

@@ -13,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 //   exit('$_FILES is empty - is file_uploads set to "Off" in php.ini?');
 // }
 
-if ($_FILES["fileToUpload"]["size"] > 50000000) {
-  echo json_encode(["success" => false, "error" => "File is too big for upload. The limit is 50MB."]);
-  exit("File is too big for upload. The limit is 50MB.");
+if ($_FILES["fileToUpload"]["size"] > 25000000) {
+  echo json_encode(["success" => false, "error" => "File is too big for upload. The limit is 25MB."]);
+  exit("File is too big for upload. The limit is 25MB.");
 }
 
 if ($_FILES["fileToUpload"]["error"] !== UPLOAD_ERR_OK) {
