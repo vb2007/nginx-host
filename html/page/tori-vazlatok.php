@@ -44,7 +44,8 @@
                     <ul id="vazlat-lista" class="list-unstyled">
                         <?php
                             $noteDirectory = '/media/seagate/cdn/webstatic/tori-vazlatok/2023_2024/';
-                            
+                            $noteWebDirectory = 'https://cdn.vb2007.hu/webstatic/tori-vazlatok/2023_2024/';
+
                             $notes = scandir($noteDirectory);
                             $notes = array_diff($notes, array('..', '.'));
                             natsort($notes);
@@ -57,7 +58,7 @@
                                 $displayName = str_replace('ora', '. óra - ', $parts[4]) . ' ' . ucwords(str_replace('_', ' ', implode(' ', array_slice($parts, 5))));
                                 //megjelenítés
                                 echo '<li class="d-flex align-items-start mb-2">';
-                                echo '<a href="' . $noteDirectory . $note . '">' . $displayName . '</a>';
+                                echo '<a href="' . $noteWebDirectory . $note . '">' . $displayName . '</a>';
                                 echo '</li>';
                             }
                         ?>
@@ -68,6 +69,8 @@
                     <ul id="vazlat-lista" class="list-unstyled">
                         <?php
                             $noteDirectory = '/media/seagate/cdn/webstatic/tori-vazlatok/2022_2023/';
+                            $noteWebDirectory = 'https://cdn.vb2007.hu/webstatic/tori-vazlatok/2022_2023/';
+
                             $notes = scandir($noteDirectory);
                             $notes = array_diff($notes, array('..', '.'));
                             natsort($notes);
@@ -80,7 +83,7 @@
                                 $displayName = str_replace('ora', '. óra - ', $parts[4]) . ' ' . ucwords(str_replace('_', ' ', implode(' ', array_slice($parts, 5))));
                                 //megjelenítés
                                 echo '<li class="d-flex align-items-start mb-2">';
-                                echo '<a href="' . $noteDirectory . $note . '">' . $displayName . '</a>';
+                                echo '<a href="' . $noteWebDirectory . $note . '">' . $displayName . '</a>';
                                 echo '</li>';
                             }
                         ?>
